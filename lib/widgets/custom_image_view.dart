@@ -31,7 +31,7 @@ class CustomImageView extends StatelessWidget {
     this.fit,
     this.alignment,
     this.onTap,
-    this.radius,
+    this.radius ,
     this.margin,
     this.border,
     this.placeHolder = 'assets/images/image_not_found.png',

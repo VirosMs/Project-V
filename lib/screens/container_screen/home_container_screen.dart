@@ -4,7 +4,7 @@ import 'package:project_v/widgets/custom_bottom_bar.dart';
 import 'models/home_container_model.dart';
 import 'package:flutter/material.dart';
 import 'package:project_v/core/app_export.dart';
-import 'bloc/home_container_bloc.dart';
+import 'bloc/container_bloc.dart';
 
 // ignore_for_file: must_be_immutable
 class HomeContainerScreen extends StatelessWidget {
@@ -13,16 +13,16 @@ class HomeContainerScreen extends StatelessWidget {
   GlobalKey<NavigatorState> navigatorKey = GlobalKey();
 
   static Widget builder(BuildContext context) {
-    return BlocProvider<HomeContainerBloc>(
-        create: (context) => HomeContainerBloc(
-            HomeContainerState(homeContainerModelObj: HomeContainerModel()))
-          ..add(HomeContainerInitialEvent()),
+    return BlocProvider<ContainerBloc>(
+        create: (context) => ContainerBloc(
+            ContainerState(homeContainerModelObj: HomeContainerModel()))
+          ..add(ContainerInitialEvent()),
         child: HomeContainerScreen());
   }
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<HomeContainerBloc, HomeContainerState>(
+    return BlocBuilder<ContainerBloc, ContainerState>(
         builder: (context, state) {
       return SafeArea(
           child: Scaffold(

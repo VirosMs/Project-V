@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import '../screens/splash_screen/splash_screen.dart';
 import '../screens/login_screen/login_screen.dart';
 import '../screens/register_screen/register_screen.dart';
-import '../screens/home_container_screen/home_container_screen.dart';
+import '../screens/container_screen/home_container_screen.dart';
 import '../screens/app_navigation_screen/app_navigation_screen.dart';
 
 class AppRoutes {

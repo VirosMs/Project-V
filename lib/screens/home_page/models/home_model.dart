@@ -5,7 +5,7 @@ import 'package:equatable/equatable.dart';
 /// This class defines the variables used in the [home_page],
 /// and is typically used to hold data that is passed between different parts of the application.
 class HomeModel extends Equatable {
-  HomeModel() {}
+  HomeModel();
 
   HomeModel copyWith() {
     return HomeModel();
@@ -13,4 +13,6 @@ class HomeModel extends Equatable {
 
   @override
   List<Object?> get props => [];
+
+  
 }

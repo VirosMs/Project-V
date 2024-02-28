@@ -1,10 +1,10 @@
 // ignore_for_file: must_be_immutable
 
-part of 'home_container_bloc.dart';
+part of 'container_bloc.dart';
 
 /// Represents the state of HomeContainer in the application.
-class HomeContainerState extends Equatable {
-  HomeContainerState({this.homeContainerModelObj});
+class ContainerState extends Equatable {
+  ContainerState({this.homeContainerModelObj});
 
   HomeContainerModel? homeContainerModelObj;
 
@@ -13,8 +13,8 @@ class HomeContainerState extends Equatable {
         homeContainerModelObj,
       ];
 
-  HomeContainerState copyWith({HomeContainerModel? homeContainerModelObj}) {
-    return HomeContainerState(
+  ContainerState copyWith({HomeContainerModel? homeContainerModelObj}) {
+    return ContainerState(
       homeContainerModelObj:
           homeContainerModelObj ?? this.homeContainerModelObj,
     );
