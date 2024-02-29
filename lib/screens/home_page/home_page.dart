@@ -5,13 +5,15 @@ import 'package:project_v/core/app_export.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'bloc/home_bloc.dart';
 
-// ignore_for_file: must_be_immutable
+/// HomePage es una clase que extiende StatelessWidget y representa la página de inicio de la aplicación.
 class HomePage extends StatelessWidget {
+  /// Constructor de HomePage.
   const HomePage({Key? key})
       : super(
           key: key,
         );
 
+/// Método estático para construir la HomePage con su respectivo BlocProvider.
   static Widget builder(BuildContext context) {
     return BlocProvider<HomeBloc>(
       create: (context) => HomeBloc(HomeState(
@@ -22,8 +24,10 @@ class HomePage extends StatelessWidget {
     );
   }
 
+  /// Método que construye la interfaz de usuario de la HomePage.
   @override
   Widget build(BuildContext context) {
+    // Aquí se construye la interfaz de usuario de la HomePage.
     return SafeArea(
       child: Scaffold(
           resizeToAvoidBottomInset: false,
@@ -57,6 +61,7 @@ class HomePage extends StatelessWidget {
   }
 
   /// Section Widget
+  /// Método para construir un carrusel de imágenes.
   Widget _buildCarousel(BuildContext context) {
     return CarouselSlider(
       options: CarouselOptions(
@@ -77,6 +82,7 @@ class HomePage extends StatelessWidget {
   }
 
   /// Section Widget
+  /// Método para construir un segundo carrusel de imágenes.
   Widget _buildCarousel1(BuildContext context) {
     return CarouselSlider(
       options: CarouselOptions(
@@ -97,6 +103,7 @@ class HomePage extends StatelessWidget {
   }
 
   /// Section Widget
+  /// Método para construir un segundo carrusel de imágenes.
   Widget _buildCarousel2(BuildContext context) {
     return CarouselSlider(
       options: CarouselOptions(
@@ -116,12 +123,13 @@ class HomePage extends StatelessWidget {
     );
   }
 
-
+/// Método para construir un elemento individual del carrusel.
   Widget _buildItem1(
     BuildContext context, {
     required String imagePath,
     required String text,
   }) {
+    // Aquí se construye un elemento individual del carrusel.
     return Stack(
       children: [
         CustomImageView(
