@@ -6,14 +6,16 @@ import 'package:flutter/material.dart';
 import 'package:project_v/core/app_export.dart';
 import 'bloc/login_bloc.dart';
 
+/// The login screen widget.
 class LoginScreen extends StatelessWidget {
   LoginScreen({Key? key})
       : super(
           key: key,
         );
 
-  GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
+  /// Creates a new instance of the [LoginScreen] widget.
   static Widget builder(BuildContext context) {
     return BlocProvider<LoginBloc>(
       create: (context) => LoginBloc(LoginState(
@@ -92,7 +94,7 @@ class LoginScreen extends StatelessWidget {
     );
   }
 
-  /// Section Widget
+  /// Builds the email text field.
   Widget _buildTextField(BuildContext context) {
     return Container(
       margin: EdgeInsets.symmetric(horizontal: 15.h),
@@ -121,14 +123,12 @@ class LoginScreen extends StatelessWidget {
               );
             },
           ),
-          
-          
         ],
       ),
     );
   }
 
-  /// Section Widget
+  /// Builds the password text field.
   Widget _buildTextField1(BuildContext context) {
     return Container(
       margin: EdgeInsets.symmetric(horizontal: 15.h),
@@ -175,7 +175,6 @@ class LoginScreen extends StatelessWidget {
               );
             },
           ),
-          
         ],
       ),
     );

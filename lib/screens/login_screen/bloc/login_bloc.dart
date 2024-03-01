@@ -12,6 +12,10 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
     on<ChangePasswordVisibilityEvent>(_changePasswordVisibility);
   }
 
+  /// Changes the visibility of the password field.
+  ///
+  /// This method is called when a [ChangePasswordVisibilityEvent] is dispatched to the bloc.
+  /// It updates the [LoginState] by changing the value of [isShowPassword] to the value provided in the event.
   _changePasswordVisibility(
     ChangePasswordVisibilityEvent event,
     Emitter<LoginState> emit,
@@ -21,6 +25,11 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
     ));
   }
 
+  /// Initializes the login state.
+  ///
+  /// This method is called when a [LoginInitialEvent] is dispatched to the bloc.
+  /// It initializes the [LoginState] by setting the email and password controllers,
+  /// and setting the initial value of [isShowPassword] to true.
   _onInitialize(
     LoginInitialEvent event,
     Emitter<LoginState> emit,

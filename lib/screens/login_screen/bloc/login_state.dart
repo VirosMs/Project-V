@@ -1,4 +1,4 @@
-// ignore_for_file: must_be_immutable
+
 
 part of 'login_bloc.dart';
 
@@ -11,13 +11,17 @@ class LoginState extends Equatable {
     this.loginModelObj,
   });
 
-  TextEditingController? emailController;
+  /// The controller for the email input field.
+  final TextEditingController? emailController;
 
-  TextEditingController? passwordController;
+  /// The controller for the password input field.
+  final TextEditingController? passwordController;
 
-  LoginModel? loginModelObj;
+  /// The login model object.
+  final LoginModel? loginModelObj;
 
-  bool isShowPassword;
+  /// Indicates whether the password is currently shown or hidden.
+  final bool isShowPassword;
 
   @override
   List<Object?> get props => [
@@ -27,6 +31,7 @@ class LoginState extends Equatable {
         loginModelObj,
       ];
 
+  /// Creates a new instance of [LoginState] with the provided values.
   LoginState copyWith({
     TextEditingController? emailController,
     TextEditingController? passwordController,

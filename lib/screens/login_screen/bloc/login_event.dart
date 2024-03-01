@@ -1,9 +1,7 @@
-// ignore_for_file: must_be_immutable
-
 part of 'login_bloc.dart';
 
 /// Abstract class for all events that can be dispatched from the
-///Login widget.
+/// Login widget.
 ///
 /// Events must be immutable and implement the [Equatable] interface.
 @immutable
@@ -18,11 +16,16 @@ class LoginInitialEvent extends LoginEvent {
   List<Object?> get props => [];
 }
 
-///Event for changing password visibility
+/// Event for changing password visibility.
+///
+/// This event is dispatched when the user toggles the visibility of the password
+/// field in the Login widget.
 class ChangePasswordVisibilityEvent extends LoginEvent {
-  ChangePasswordVisibilityEvent({required this.value});
+  /// The new visibility value for the password field.
+  final bool value;
 
-  bool value;
+  /// Creates a [ChangePasswordVisibilityEvent] with the given [value].
+  ChangePasswordVisibilityEvent({required this.value});
 
   @override
   List<Object?> get props => [
