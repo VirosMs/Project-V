@@ -11,6 +11,7 @@ class SplashBloc extends Bloc<SplashEvent, SplashState> {
     on<SplashInitialEvent>(_onInitialize);
   }
 
+  /// Handles the [SplashInitialEvent] by delaying for 1500 milliseconds and then navigating to the login screen.
   _onInitialize(
     SplashInitialEvent event,
     Emitter<SplashState> emit,
