@@ -3,12 +3,14 @@ import 'package:flutter/material.dart';
 import 'package:project_v/core/app_export.dart';
 import 'bloc/app_navigation_bloc.dart';
 
+/// The screen that displays the app navigation options.
 class AppNavigationScreen extends StatelessWidget {
   const AppNavigationScreen({Key? key})
       : super(
           key: key,
         );
 
+  /// A static method that returns a widget for building the AppNavigationScreen.
   static Widget builder(BuildContext context) {
     return BlocProvider<AppNavigationBloc>(
       create: (context) => AppNavigationBloc(AppNavigationState(
@@ -77,7 +79,7 @@ class AppNavigationScreen extends StatelessWidget {
     );
   }
 
-  /// Section Widget
+  /// Builds the app navigation section widget.
   Widget _buildAppNavigation(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
@@ -131,7 +133,7 @@ class AppNavigationScreen extends StatelessWidget {
     );
   }
 
-  /// Common widget
+  /// Builds a widget for a screen title.
   Widget _buildScreenTitle(
     BuildContext context, {
     required String screenTitle,
@@ -177,7 +179,7 @@ class AppNavigationScreen extends StatelessWidget {
     );
   }
 
-  /// Common click event
+  /// Handles the click event for a screen title.
   void onTapScreenTitle(String routeName) {
     NavigatorService.pushNamed(routeName);
   }
