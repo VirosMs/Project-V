@@ -2,7 +2,10 @@ import '../models/favorite_item_model.dart';
 import 'package:flutter/material.dart';
 import 'package:project_v/core/app_export.dart';
 
-// ignore: must_be_immutable
+/// A widget that represents a favorite item.
+///
+/// This widget displays a card with a favorite item's details, including a header,
+/// subhead, and an image. It is typically used in a list of favorite items.
 class FavoriteItemWidget extends StatelessWidget {
   FavoriteItemWidget(
     this.favoriteItemModelObj, {
@@ -11,7 +14,7 @@ class FavoriteItemWidget extends StatelessWidget {
           key: key,
         );
 
-  FavoriteItemModel favoriteItemModelObj;
+  final FavoriteItemModel favoriteItemModelObj;
 
   @override
   Widget build(BuildContext context) {
@@ -31,7 +34,7 @@ class FavoriteItemWidget extends StatelessWidget {
         child: Stack(
           alignment: Alignment.center,
           children: [
-            Align(              
+            Align(
               alignment: Alignment.center,
               child: Container(
                 height: 79.v,

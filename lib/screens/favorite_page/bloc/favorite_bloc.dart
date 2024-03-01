@@ -12,6 +12,7 @@ class FavoriteBloc extends Bloc<FavoriteEvent, FavoriteState> {
     on<FavoriteInitialEvent>(_onInitialize);
   }
 
+  /// Initializes the Favorite state with a list of favorite items.
   _onInitialize(
     FavoriteInitialEvent event,
     Emitter<FavoriteState> emit,
@@ -22,6 +23,7 @@ class FavoriteBloc extends Bloc<FavoriteEvent, FavoriteState> {
     )));
   }
 
+  /// Fills the favorite item list with predefined items.
   List<FavoriteItemModel> fillFavoriteItemList() {
     return [
       FavoriteItemModel(

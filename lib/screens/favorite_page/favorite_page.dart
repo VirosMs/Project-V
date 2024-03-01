@@ -6,13 +6,14 @@ import 'package:flutter/material.dart';
 import 'package:project_v/core/app_export.dart';
 import 'bloc/favorite_bloc.dart';
 
-// ignore_for_file: must_be_immutable
+/// The FavoritePage class represents a screen that displays a list of favorite items.
 class FavoritePage extends StatelessWidget {
   const FavoritePage({Key? key})
       : super(
           key: key,
         );
 
+  /// Creates a FavoritePage widget using the provided [context].
   static Widget builder(BuildContext context) {
     return BlocProvider<FavoriteBloc>(
       create: (context) => FavoriteBloc(FavoriteState(
@@ -44,7 +45,9 @@ class FavoritePage extends StatelessWidget {
     ));
   }
 
-  /// Section Widget
+  /// Builds the top app bar widget.
+  ///
+  /// The top app bar contains a custom app bar and a text label.
   Widget _buildTopAppBar(BuildContext context) {
     return SizedBox(
       height: 48.v,
@@ -79,7 +82,9 @@ class FavoritePage extends StatelessWidget {
     );
   }
 
-  /// Section Widget
+  /// Builds the favorite list widget.
+  ///
+  /// The favorite list is populated with items from the [favoriteModelObj].
   Widget _buildFavorite(BuildContext context) {
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: 8.h),
