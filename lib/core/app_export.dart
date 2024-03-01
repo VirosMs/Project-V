@@ -1,3 +1,24 @@
+/// This file exports various dependencies and utilities used in the project.
+/// It includes:
+/// - Connectivity package for managing network connectivity.
+/// - Flutter Bloc package for state management.
+/// - Exceptions for handling errors.
+/// - NetworkInfo class for checking network availability.
+/// - ImageConstant class for storing image paths.
+/// - Logger class for logging messages.
+/// - NavigatorService class for navigation management.
+/// - PrefUtils class for managing shared preferences.
+/// - SizeUtils class for handling screen size calculations.
+/// - SelectionPopupModel class for representing selection popups.
+/// - AppLocalization class for managing app localization.
+/// - AppRoutes class for defining app routes.
+/// - AppDecoration class for defining app decorations.
+/// - CustomTextStyle class for defining custom text styles.
+/// - ThemeHelper class for managing app themes.
+/// - CustomImageView widget for displaying custom images.
+/// - ThemeBloc for managing theme state.
+/// - CustomButtonStyle class for defining custom button styles.
+/// - DateTimeUtils class for handling date and time operations.
 export 'package:connectivity_plus/connectivity_plus.dart';
 export 'package:flutter_bloc/flutter_bloc.dart';
 export 'package:project_v/core/errors/exceptions.dart';
