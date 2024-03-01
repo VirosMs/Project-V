@@ -15,20 +15,28 @@ class RegisterState extends Equatable {
     this.registerModelObj,
   });
 
+  /// The controller for the name input field.
   TextEditingController? nameController;
 
+  /// The controller for the email input field.
   TextEditingController? emailController;
 
+  /// The controller for the password input field.
   TextEditingController? passwordController;
 
+  /// The controller for the confirm password input field.
   TextEditingController? passwordController1;
 
+  /// The RegisterModel object.
   RegisterModel? registerModelObj;
 
+  /// Flag indicating whether the password is shown or hidden.
   bool isShowPassword;
 
+  /// Flag indicating whether the confirm password is shown or hidden.
   bool isShowPassword1;
 
+  /// Flag indicating whether the container is visible or hidden.
   bool container;
 
   @override
@@ -43,6 +51,7 @@ class RegisterState extends Equatable {
         registerModelObj,
       ];
 
+  /// Creates a copy of the current RegisterState object with optional parameter overrides.
   RegisterState copyWith({
     TextEditingController? nameController,
     TextEditingController? emailController,

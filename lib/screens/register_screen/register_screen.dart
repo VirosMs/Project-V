@@ -7,14 +7,16 @@ import 'package:flutter/material.dart';
 import 'package:project_v/core/app_export.dart';
 import 'bloc/register_bloc.dart';
 
+/// The screen for user registration.
 class RegisterScreen extends StatelessWidget {
   RegisterScreen({Key? key})
       : super(
           key: key,
         );
 
-  GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
+  /// Creates a new instance of [RegisterScreen] wrapped in a [BlocProvider].
   static Widget builder(BuildContext context) {
     return BlocProvider<RegisterBloc>(
       create: (context) => RegisterBloc(RegisterState(
@@ -82,6 +84,7 @@ class RegisterScreen extends StatelessWidget {
   }
 
   /// Section Widget
+  /// Builds the "Already have an account?" section.
   Widget _buildAlreadyhaveAccount(BuildContext context) {
     return Align(
       alignment: Alignment.center,
@@ -103,6 +106,7 @@ class RegisterScreen extends StatelessWidget {
   }
 
   /// Section Widget
+  /// Builds the name input field.
   Widget _buildName(BuildContext context) {
     return BlocSelector<RegisterBloc, RegisterState, TextEditingController?>(
       selector: (state) => state.nameController,
@@ -126,6 +130,7 @@ class RegisterScreen extends StatelessWidget {
   }
 
   /// Section Widget
+  /// Builds the email input field.
   Widget _buildEmail(BuildContext context) {
     return BlocSelector<RegisterBloc, RegisterState, TextEditingController?>(
       selector: (state) => state.emailController,
@@ -150,6 +155,7 @@ class RegisterScreen extends StatelessWidget {
   }
 
   /// Section Widget
+  /// Builds the password input field.
   Widget _buildPassword(BuildContext context) {
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: 15.h),
@@ -194,6 +200,7 @@ class RegisterScreen extends StatelessWidget {
   }
 
   /// Section Widget
+  /// Builds the password confirmation input field.
   Widget _buildPassword1(BuildContext context) {
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: 15.h),
@@ -239,6 +246,7 @@ class RegisterScreen extends StatelessWidget {
   }
 
   /// Section Widget
+  /// Builds the container with the terms and conditions checkbox.
   Widget _buildContainer(BuildContext context) {
     return Padding(
       padding: EdgeInsets.only(
@@ -264,6 +272,7 @@ class RegisterScreen extends StatelessWidget {
   }
 
   /// Section Widget
+  /// Builds the register button.
   Widget _buildButtonRegister(BuildContext context) {
     return CustomElevatedButton(
       height: 42.v,

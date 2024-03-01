@@ -14,6 +14,7 @@ class RegisterBloc extends Bloc<RegisterEvent, RegisterState> {
     on<ChangeCheckBoxEvent>(_changeCheckBox);
   }
 
+  /// Changes the visibility of the password.
   _changePasswordVisibility(
     ChangePasswordVisibilityEvent event,
     Emitter<RegisterState> emit,
@@ -23,6 +24,7 @@ class RegisterBloc extends Bloc<RegisterEvent, RegisterState> {
     ));
   }
 
+  /// Changes the visibility of the second password.
   _changePasswordVisibility1(
     ChangePasswordVisibilityEvent1 event,
     Emitter<RegisterState> emit,
@@ -32,6 +34,7 @@ class RegisterBloc extends Bloc<RegisterEvent, RegisterState> {
     ));
   }
 
+  /// Changes the value of the checkbox.
   _changeCheckBox(
     ChangeCheckBoxEvent event,
     Emitter<RegisterState> emit,
@@ -41,6 +44,7 @@ class RegisterBloc extends Bloc<RegisterEvent, RegisterState> {
     ));
   }
 
+  /// Initializes the Register state with default values.
   _onInitialize(
     RegisterInitialEvent event,
     Emitter<RegisterState> emit,
