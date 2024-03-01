@@ -3,19 +3,26 @@ import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'core/app_export.dart';
 
+// A global key for accessing the ScaffoldMessengerState
 var globalMessengerKey = GlobalKey<ScaffoldMessengerState>();
+
+// The entry point of the application
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
+  
+  // Initialize preferred orientations and other dependencies asynchronously
   Future.wait([
     SystemChrome.setPreferredOrientations([
       DeviceOrientation.portraitUp,
     ]),
     PrefUtils().init()
   ]).then((value) {
+    // Run the application
     runApp(MyApp());
   });
 }
 
+// The root widget of the application
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
