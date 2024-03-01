@@ -1,6 +1,9 @@
+// ignore_for_file: must_be_immutable
+
 import 'package:flutter/material.dart';
 import '../core/app_export.dart';
 
+/// A custom checkbox button widget.
 class CustomCheckboxButton extends StatelessWidget {
   CustomCheckboxButton({
     Key? key,
@@ -20,28 +23,40 @@ class CustomCheckboxButton extends StatelessWidget {
           key: key,
         );
 
+  /// The decoration to be applied to the checkbox button.
   final BoxDecoration? decoration;
 
+  /// The alignment of the checkbox button.
   final Alignment? alignment;
 
+  /// Whether the checkbox should be displayed on the right side.
   final bool? isRightCheck;
 
+  /// The size of the checkbox icon.
   final double? iconSize;
 
+  /// The current value of the checkbox.
   bool? value;
 
+  /// A callback function that is called when the checkbox value changes.
   final Function(bool) onChange;
 
+  /// The text to be displayed next to the checkbox.
   final String? text;
 
+  /// The width of the checkbox button.
   final double? width;
 
+  /// The padding around the checkbox button.
   final EdgeInsetsGeometry? padding;
 
+  /// The style of the text.
   final TextStyle? textStyle;
 
+  /// The alignment of the text.
   final TextAlign? textAlignment;
 
+  /// Whether the text should expand to fill the available space.
   final bool isExpandedText;
 
   @override
@@ -54,6 +69,7 @@ class CustomCheckboxButton extends StatelessWidget {
         : buildCheckBoxWidget;
   }
 
+  /// Builds the checkbox widget.
   Widget get buildCheckBoxWidget => InkWell(
         onTap: () {
           value = !(value!);
@@ -65,6 +81,8 @@ class CustomCheckboxButton extends StatelessWidget {
           child: (isRightCheck ?? false) ? rightSideCheckbox : leftSideCheckbox,
         ),
       );
+
+  /// Builds the checkbox widget with the text on the left side.
   Widget get leftSideCheckbox => Row(
         children: [
           Padding(
@@ -74,6 +92,8 @@ class CustomCheckboxButton extends StatelessWidget {
           isExpandedText ? Expanded(child: textWidget) : textWidget,
         ],
       );
+
+  /// Builds the checkbox widget with the text on the right side.
   Widget get rightSideCheckbox => Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
@@ -84,11 +104,15 @@ class CustomCheckboxButton extends StatelessWidget {
           ),
         ],
       );
+
+  /// Builds the text widget.
   Widget get textWidget => Text(
         text ?? "",
         textAlign: textAlignment ?? TextAlign.center,
         style: textStyle ?? theme.textTheme.titleSmall,
       );
+
+  /// Builds the checkbox widget.
   Widget get checkboxWidget => SizedBox(
         height: iconSize ?? 18.h,
         width: iconSize ?? 18.h,

@@ -1,9 +1,13 @@
+// ignore_for_file: must_be_immutable
+
 import 'package:flutter/material.dart';
 import 'package:project_v/core/app_export.dart';
 
+/// A custom bottom navigation bar widget.
 class CustomBottomBar extends StatefulWidget {
   CustomBottomBar({this.onChanged});
 
+  /// A callback function that is called when the selected item in the bottom navigation bar changes.
   Function(BottomBarEnum)? onChanged;
 
   @override
@@ -112,12 +116,14 @@ class CustomBottomBarState extends State<CustomBottomBar> {
   }
 }
 
+/// An enum representing the different types of items in the bottom navigation bar.
 enum BottomBarEnum {
   Home,
   Favorite,
   Profile,
 }
 
+/// A model class representing a bottom menu item.
 class BottomMenuModel {
   BottomMenuModel({
     required this.icon,
@@ -126,15 +132,20 @@ class BottomMenuModel {
     required this.type,
   });
 
+  /// The icon of the menu item.
   String icon;
 
+  /// The active icon of the menu item.
   String activeIcon;
 
+  /// The title of the menu item.
   String? title;
 
+  /// The type of the menu item.
   BottomBarEnum type;
 }
 
+/// A default widget to be displayed when no other widget is available.
 class DefaultWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {

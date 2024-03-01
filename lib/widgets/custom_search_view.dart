@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../core/app_export.dart';
 
+/// A custom search view widget that provides a text input field with search functionality.
 class CustomSearchView extends StatelessWidget {
   CustomSearchView({
     Key? key,
@@ -29,46 +30,67 @@ class CustomSearchView extends StatelessWidget {
           key: key,
         );
 
+  /// The alignment of the search view widget.
   final Alignment? alignment;
 
+  /// The width of the search view widget.
   final double? width;
 
+  /// The scroll padding of the search view widget.
   final TextEditingController? scrollPadding;
 
+  /// The controller for the text field.
   final TextEditingController? controller;
 
+  /// The focus node for the text field.
   final FocusNode? focusNode;
 
+  /// Whether the text field should be autofocused.
   final bool? autofocus;
 
+  /// The style of the text in the text field.
   final TextStyle? textStyle;
 
+  /// The type of keyboard to use for the text field.
   final TextInputType? textInputType;
 
+  /// The maximum number of lines for the text field.
   final int? maxLines;
 
+  /// The hint text to display in the text field.
   final String? hintText;
 
+  /// The style of the hint text in the text field.
   final TextStyle? hintStyle;
 
+  /// The widget to display before the text field.
   final Widget? prefix;
 
+  /// The constraints for the prefix widget.
   final BoxConstraints? prefixConstraints;
 
+  /// The widget to display after the text field.
   final Widget? suffix;
 
+  /// The constraints for the suffix widget.
   final BoxConstraints? suffixConstraints;
 
+  /// The padding around the content of the text field.
   final EdgeInsets? contentPadding;
 
+  /// The decoration for the text field.
   final InputBorder? borderDecoration;
 
+  /// The fill color of the text field.
   final Color? fillColor;
 
+  /// Whether the text field should be filled with color.
   final bool? filled;
 
+  /// The validator function for the text field.
   final FormFieldValidator<String>? validator;
 
+  /// The callback function that is called when the text field's value changes.
   final Function(String)? onChanged;
 
   @override
@@ -81,6 +103,7 @@ class CustomSearchView extends StatelessWidget {
         : searchViewWidget(context);
   }
 
+  /// Builds the search view widget.
   Widget searchViewWidget(BuildContext context) => SizedBox(
         width: width ?? SizeUtils.width / 1.1,        
         child: TextFormField(
@@ -99,6 +122,8 @@ class CustomSearchView extends StatelessWidget {
           },
         ),
       );
+
+  /// Returns the decoration for the text field.
   InputDecoration get decoration => InputDecoration(
         hintText: hintText ?? "",
         hintStyle: hintStyle ?? CustomTextStyles.bodyLargeOnPrimaryContainer,

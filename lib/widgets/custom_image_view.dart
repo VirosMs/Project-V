@@ -6,23 +6,47 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
+/// A custom image view widget that can be used to display different types of images.
+/// It provides options for customizing the image's height, width, color, alignment, and more.
 class CustomImageView extends StatelessWidget {
-  ///[imagePath] is required parameter for showing image
+  /// The path of the image to be displayed.
   String? imagePath;
 
+  /// The height of the image.
   double? height;
+
+  /// The width of the image.
   double? width;
+
+  /// The color of the image.
   Color? color;
+
+  /// The fit of the image within its container.
   BoxFit? fit;
+
+  /// The placeholder image to be displayed if the image is not found.
   final String placeHolder;
+
+  /// The alignment of the image within its container.
   Alignment? alignment;
+
+  /// The callback function to be called when the image is tapped.
   VoidCallback? onTap;
+
+  /// The margin around the image.
   EdgeInsetsGeometry? margin;
+
+  /// The border radius of the image.
   BorderRadius? radius;
+
+  /// The border of the image.
   BoxBorder? border;
 
-  ///a [CustomImageView] it can be used for showing any type of images
-  /// it will shows the placeholder image if image is not found on network image
+  /// Creates a new [CustomImageView] widget.
+  ///
+  /// The [imagePath] parameter is required and specifies the path of the image to be displayed.
+  /// The [placeHolder] parameter specifies the placeholder image to be displayed if the image is not found.
+  /// The other parameters are optional and can be used to customize the appearance of the image.
   CustomImageView({
     this.imagePath,
     this.height,
@@ -31,7 +55,7 @@ class CustomImageView extends StatelessWidget {
     this.fit,
     this.alignment,
     this.onTap,
-    this.radius ,
+    this.radius,
     this.margin,
     this.border,
     this.placeHolder = 'assets/images/image_not_found.png',
@@ -57,7 +81,7 @@ class CustomImageView extends StatelessWidget {
     );
   }
 
-  ///build the image with border radius
+  /// Builds the image with border radius.
   _buildCircleImage() {
     if (radius != null) {
       return ClipRRect(
@@ -69,7 +93,7 @@ class CustomImageView extends StatelessWidget {
     }
   }
 
-  ///build the image with border and border radius style
+  /// Builds the image with border and border radius style.
   _buildImageWithBorder() {
     if (border != null) {
       return Container(
@@ -84,6 +108,7 @@ class CustomImageView extends StatelessWidget {
     }
   }
 
+  /// Builds the image view based on the image type.
   Widget _buildImageView() {
     if (imagePath != null) {
       switch (imagePath!.imageType) {
@@ -145,7 +170,9 @@ class CustomImageView extends StatelessWidget {
   }
 }
 
+/// Extension on the [String] class to determine the type of the image.
 extension ImageTypeExtension on String {
+  /// Returns the type of the image based on its path.
   ImageType get imageType {
     if (this.startsWith('http') || this.startsWith('https')) {
       return ImageType.network;
@@ -159,4 +186,5 @@ extension ImageTypeExtension on String {
   }
 }
 
+/// Enum representing the different types of images.
 enum ImageType { svg, png, network, file, unknown }
