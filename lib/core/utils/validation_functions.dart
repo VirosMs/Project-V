@@ -1,4 +1,8 @@
-/// Checks if string is email.
+/// Checks if a string is a valid email address.
+///
+/// Returns `true` if the [inputString] is a valid email address,
+/// or if [isRequired] is `false` and [inputString] is `null` or empty.
+/// Otherwise, returns `false`.
 bool isValidEmail(
   String? inputString, {
   bool isRequired = false,
@@ -21,13 +25,19 @@ bool isValidEmail(
   return isInputStringValid;
 }
 
-/// Password should have,
-/// at least a upper case letter
-///  at least a lower case letter
-///  at least a digit
-///  at least a special character [@#$%^&+=]
-///  length of at least 4
-/// no white space allowed
+/// Checks if a string is a valid password.
+///
+/// Returns `true` if the [inputString] is a valid password,
+/// or if [isRequired] is `false` and [inputString] is `null` or empty.
+/// Otherwise, returns `false`.
+///
+/// A valid password should have:
+/// - at least one uppercase letter
+/// - at least one lowercase letter
+/// - at least one digit
+/// - at least one special character [@#$%^&+=]
+/// - a length of at least 4 characters
+/// - no whitespace allowed
 bool isValidPassword(
   String? inputString, {
   bool isRequired = false,
@@ -50,7 +60,11 @@ bool isValidPassword(
   return isInputStringValid;
 }
 
-/// Checks if string consist only Alphabet. (No Whitespace)
+/// Checks if a string consists only of alphabets (no whitespace).
+///
+/// Returns `true` if the [inputString] consists only of alphabets (no whitespace),
+/// or if [isRequired] is `false` and [inputString] is `null` or empty.
+/// Otherwise, returns `false`.
 bool isText(
   String? inputString, {
   bool isRequired = false,

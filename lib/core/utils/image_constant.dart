@@ -1,3 +1,4 @@
+/// A class that contains constant paths to image assets.
 class ImageConstant {
   // Image folder path
   static String imagePath = 'assets/images';
@@ -5,7 +6,6 @@ class ImageConstant {
   // splash images
   static String imgBlackAndWhite = '$imagePath/img_black_and_white.png';
 
-  // favorite images
   static String imgArrowDown = '$imagePath/img_arrow_down.svg';
 
   static String imgMedia = '$imagePath/img_media.png';

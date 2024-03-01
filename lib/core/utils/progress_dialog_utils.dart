@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:project_v/core/app_export.dart';
 
+/// A utility class for managing progress dialog.
 class ProgressDialogUtils {
   static bool isProgressVisible = false;
 
-  ///common method for showing progress dialog
-  static void showProgressDialog(
-      {BuildContext? context, isCancellable = false}) async {
+  /// Shows a progress dialog.
+  ///
+  /// The [context] parameter is the build context of the current widget.
+  /// The [isCancellable] parameter determines whether the dialog can be cancelled by tapping outside.
+  static void showProgressDialog({BuildContext? context, isCancellable = false}) async {
     if (!isProgressVisible &&
         NavigatorService.navigatorKey.currentState?.overlay?.context != null) {
       showDialog(
@@ -26,7 +29,7 @@ class ProgressDialogUtils {
     }
   }
 
-  ///common method for hiding progress dialog
+  /// Hides the progress dialog.
   static void hideProgressDialog() {
     if (isProgressVisible)
       Navigator.pop(
