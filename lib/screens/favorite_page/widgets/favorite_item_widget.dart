@@ -42,22 +42,23 @@ class FavoriteItemWidget extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Padding(
-                      padding: EdgeInsets.symmetric(vertical: 17.v),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            favoriteItemModelObj.header!,
-                            style: theme.textTheme.titleMedium,
+                        padding: EdgeInsets.symmetric(vertical: 17.v),
+                        child: SingleChildScrollView(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                favoriteItemModelObj.header!,
+                                style: theme.textTheme.titleMedium,
+                              ),
+                              SizedBox(height: 7.v),
+                              Text(
+                                favoriteItemModelObj.subhead!,
+                                style: theme.textTheme.bodyMedium,
+                              ),
+                            ],
                           ),
-                          SizedBox(height: 7.v),
-                          Text(
-                            favoriteItemModelObj.subhead!,
-                            style: theme.textTheme.bodyMedium,
-                          ),
-                        ],
-                      ),
-                    ),
+                        )),
                     CustomImageView(
                       imagePath: favoriteItemModelObj.onepiece,
                       height: 79.v,

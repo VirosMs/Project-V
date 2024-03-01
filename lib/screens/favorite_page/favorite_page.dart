@@ -26,8 +26,9 @@ class FavoritePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      child: Scaffold(
-        body: Container(
+        child: Scaffold(
+      body: SingleChildScrollView(
+        child: Container(
           width: double.maxFinite,
           decoration: AppDecoration.fillOnPrimary,
           child: Column(
@@ -40,7 +41,7 @@ class FavoritePage extends StatelessWidget {
           ),
         ),
       ),
-    );
+    ));
   }
 
   /// Section Widget
@@ -56,17 +57,12 @@ class FavoritePage extends StatelessWidget {
             alignment: Alignment.centerLeft,
             child: Padding(
               padding: EdgeInsets.only(
-                left: 4.h,
+                left: 55.h,
                 right: 50.h,
               ),
               child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  CustomImageView(
-                    imagePath: ImageConstant.imgArrowDown,
-                    height: 48.adaptSize,
-                    width: 48.adaptSize,
-                  ),
                   Padding(
                     padding: EdgeInsets.only(bottom: 4.v),
                     child: Text(
@@ -85,35 +81,33 @@ class FavoritePage extends StatelessWidget {
 
   /// Section Widget
   Widget _buildFavorite(BuildContext context) {
-    return Expanded(
-      child: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 8.h),
-        child: BlocSelector<FavoriteBloc, FavoriteState, FavoriteModel?>(
-          selector: (state) => state.favoriteModelObj,
-          builder: (context, favoriteModelObj) {
-            return ListView.separated(
-              physics: BouncingScrollPhysics(),
-              shrinkWrap: true,
-              separatorBuilder: (
-                context,
-                index,
-              ) {
-                return SizedBox(
-                  height: 20.v,
-                );
-              },
-              itemCount: favoriteModelObj?.favoriteItemList.length ?? 0,
-              itemBuilder: (context, index) {
-                FavoriteItemModel model =
-                    favoriteModelObj?.favoriteItemList[index] ??
-                        FavoriteItemModel();
-                return FavoriteItemWidget(
-                  model,
-                );
-              },
-            );
-          },
-        ),
+    return Padding(
+      padding: EdgeInsets.symmetric(horizontal: 8.h),
+      child: BlocSelector<FavoriteBloc, FavoriteState, FavoriteModel?>(
+        selector: (state) => state.favoriteModelObj,
+        builder: (context, favoriteModelObj) {
+          return ListView.separated(
+            physics: BouncingScrollPhysics(),
+            shrinkWrap: true,
+            separatorBuilder: (
+              context,
+              index,
+            ) {
+              return SizedBox(
+                height: 20.v,
+              );
+            },
+            itemCount: favoriteModelObj?.favoriteItemList.length ?? 0,
+            itemBuilder: (context, index) {
+              FavoriteItemModel model =
+                  favoriteModelObj?.favoriteItemList[index] ??
+                      FavoriteItemModel();
+              return FavoriteItemWidget(
+                model,
+              );
+            },
+          );
+        },
       ),
     );
   }
