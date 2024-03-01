@@ -6,12 +6,13 @@ import 'package:flutter/material.dart';
 import 'package:project_v/core/app_export.dart';
 import 'bloc/container_bloc.dart';
 
-// ignore_for_file: must_be_immutable
+/// The screen that contains the home container.
 class HomeContainerScreen extends StatelessWidget {
   HomeContainerScreen({Key? key}) : super(key: key);
 
-  GlobalKey<NavigatorState> navigatorKey = GlobalKey();
+  final GlobalKey<NavigatorState> navigatorKey = GlobalKey();
 
+  /// Creates a [HomeContainerScreen] widget using a builder pattern.
   static Widget builder(BuildContext context) {
     return BlocProvider<ContainerBloc>(
         create: (context) => ContainerBloc(
@@ -37,14 +38,14 @@ class HomeContainerScreen extends StatelessWidget {
     });
   }
 
-  /// Section Widget
+  /// Builds the bottom navigation bar widget.
   Widget _buildBottomBar(BuildContext context) {
     return CustomBottomBar(onChanged: (BottomBarEnum type) {
       Navigator.pushNamed(navigatorKey.currentContext!, getCurrentRoute(type));
     });
   }
 
-  ///Handling route based on bottom click actions
+  /// Gets the current route based on the selected [BottomBarEnum] type.
   String getCurrentRoute(BottomBarEnum type) {
     switch (type) {
       case BottomBarEnum.Home:
@@ -58,7 +59,7 @@ class HomeContainerScreen extends StatelessWidget {
     }
   }
 
-  ///Handling page based on route
+  /// Gets the current page widget based on the current route.
   Widget getCurrentPage(
     BuildContext context,
     String currentRoute,

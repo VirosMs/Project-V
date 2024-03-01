@@ -11,6 +11,10 @@ class ContainerBloc extends Bloc<ContainerEvent, ContainerState> {
     on<ContainerInitialEvent>(_onInitialize);
   }
 
+  /// Handles the [ContainerInitialEvent] and initializes the [ContainerState].
+  ///
+  /// This method is called when a [ContainerInitialEvent] is dispatched to the bloc.
+  /// It initializes the [ContainerState] based on the event and emits the updated state.
   _onInitialize(
     ContainerInitialEvent event,
     Emitter<ContainerState> emit,
