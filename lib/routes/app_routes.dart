@@ -5,6 +5,7 @@ import '../screens/register_screen/register_screen.dart';
 import '../screens/container_screen/home_container_screen.dart';
 import '../screens/app_navigation_screen/app_navigation_screen.dart';
 
+/// A class that defines the routes for the application.
 class AppRoutes {
   static const String splashScreen = '/splash_screen';
 
@@ -22,6 +23,7 @@ class AppRoutes {
 
   static const String initialRoute = '/initialRoute';
 
+  /// A map that contains the routes and their corresponding builders.
   static Map<String, WidgetBuilder> get routes => {
         splashScreen: SplashScreen.builder,
         loginScreen: LoginScreen.builder,
