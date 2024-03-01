@@ -7,6 +7,7 @@ import 'package:equatable/equatable.dart';
 class HomeModel extends Equatable {
   HomeModel();
 
+  /// Creates a copy of this [HomeModel] instance.
   HomeModel copyWith() {
     return HomeModel();
   }

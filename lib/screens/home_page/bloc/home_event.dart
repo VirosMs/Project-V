@@ -3,7 +3,7 @@
 part of 'home_bloc.dart';
 
 /// Abstract class for all events that can be dispatched from the
-///Home widget.
+/// Home widget.
 ///
 /// Events must be immutable and implement the [Equatable] interface.
 @immutable

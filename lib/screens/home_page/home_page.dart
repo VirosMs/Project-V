@@ -1,3 +1,14 @@
+/// FILEPATH: /D:/Git/project_v/lib/screens/home_page/home_page.dart
+/// 
+/// This file contains the implementation of the [HomePage] class, which represents the home page of the application.
+/// 
+/// The [HomePage] class extends [StatelessWidget] and is responsible for building the user interface of the home page.
+/// It includes methods for constructing carousels of images and individual carousel items.
+/// 
+/// Example usage:
+/// ```dart
+/// HomePage.builder(context);
+/// ```
 import 'package:project_v/widgets/custom_search_view.dart';
 import 'models/home_model.dart';
 import 'package:flutter/material.dart';
@@ -5,15 +16,15 @@ import 'package:project_v/core/app_export.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'bloc/home_bloc.dart';
 
-/// HomePage es una clase que extiende StatelessWidget y representa la página de inicio de la aplicación.
+/// HomePage is a class that extends [StatelessWidget] and represents the home page of the application.
 class HomePage extends StatelessWidget {
-  /// Constructor de HomePage.
+  /// Constructor for [HomePage].
   const HomePage({Key? key})
       : super(
           key: key,
         );
 
-/// Método estático para construir la HomePage con su respectivo BlocProvider.
+  /// Static method to build the [HomePage] with its respective [BlocProvider].
   static Widget builder(BuildContext context) {
     return BlocProvider<HomeBloc>(
       create: (context) => HomeBloc(HomeState(
@@ -24,10 +35,10 @@ class HomePage extends StatelessWidget {
     );
   }
 
-  /// Método que construye la interfaz de usuario de la HomePage.
+  /// Method that builds the user interface of the [HomePage].
   @override
   Widget build(BuildContext context) {
-    // Aquí se construye la interfaz de usuario de la HomePage.
+    // Here, the user interface of the [HomePage] is constructed.
     return SafeArea(
       child: Scaffold(
           resizeToAvoidBottomInset: false,
@@ -61,7 +72,7 @@ class HomePage extends StatelessWidget {
   }
 
   /// Section Widget
-  /// Método para construir un carrusel de imágenes.
+  /// Method to build a carousel of images.
   Widget _buildCarousel(BuildContext context) {
     return CarouselSlider(
       options: CarouselOptions(
@@ -82,7 +93,7 @@ class HomePage extends StatelessWidget {
   }
 
   /// Section Widget
-  /// Método para construir un segundo carrusel de imágenes.
+  /// Method to build a second carousel of images.
   Widget _buildCarousel1(BuildContext context) {
     return CarouselSlider(
       options: CarouselOptions(
@@ -103,7 +114,7 @@ class HomePage extends StatelessWidget {
   }
 
   /// Section Widget
-  /// Método para construir un segundo carrusel de imágenes.
+  /// Method to build a third carousel of images.
   Widget _buildCarousel2(BuildContext context) {
     return CarouselSlider(
       options: CarouselOptions(
@@ -123,13 +134,13 @@ class HomePage extends StatelessWidget {
     );
   }
 
-/// Método para construir un elemento individual del carrusel.
+  /// Method to build an individual item of the carousel.
   Widget _buildItem1(
     BuildContext context, {
     required String imagePath,
     required String text,
   }) {
-    // Aquí se construye un elemento individual del carrusel.
+    // Here, an individual item of the carousel is constructed.
     return Stack(
       children: [
         CustomImageView(
