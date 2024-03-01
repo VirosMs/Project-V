@@ -23,52 +23,15 @@ class FavoriteItemWidget extends StatelessWidget {
         borderRadius: BorderRadiusStyle.roundedBorder12,
       ),
       child: Container(
-        height: 79.v,
-        width: 344.h,
+        height: 100.v,
+        width: 360.h,
         decoration: BoxDecoration(
           borderRadius: BorderRadiusStyle.roundedBorder12,
         ),
         child: Stack(
           alignment: Alignment.center,
           children: [
-            Align(
-              alignment: Alignment.center,
-              child: Container(
-                margin: EdgeInsets.only(left: 16.h),
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadiusStyle.roundedBorder12,
-                ),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Padding(
-                        padding: EdgeInsets.symmetric(vertical: 17.v),
-                        child: SingleChildScrollView(
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                favoriteItemModelObj.header!,
-                                style: theme.textTheme.titleMedium,
-                              ),
-                              SizedBox(height: 7.v),
-                              Text(
-                                favoriteItemModelObj.subhead!,
-                                style: theme.textTheme.bodyMedium,
-                              ),
-                            ],
-                          ),
-                        )),
-                    CustomImageView(
-                      imagePath: favoriteItemModelObj.onepiece,
-                      height: 79.v,
-                      width: 80.h,
-                    ),
-                  ],
-                ),
-              ),
-            ),
-            Align(
+            Align(              
               alignment: Alignment.center,
               child: Container(
                 height: 79.v,
@@ -85,6 +48,45 @@ class FavoriteItemWidget extends StatelessWidget {
                 ),
               ),
             ),
+            Align(
+              alignment: Alignment.center,
+              child: Container(
+                margin: EdgeInsets.only(left: 16.h),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadiusStyle.roundedBorder12,
+                ),
+                child: SingleChildScrollView(
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Padding(
+                        padding: EdgeInsets.symmetric(vertical: 17.v),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              favoriteItemModelObj.header!,
+                              style: theme.textTheme.titleMedium,
+                            ),
+                            SizedBox(height: 7.v),
+                            Text(
+                              favoriteItemModelObj.subhead!,
+                              style: theme.textTheme.bodyMedium,
+                            ),
+                          ],
+                        ),
+                      ),
+                      CustomImageView(
+                        imagePath: favoriteItemModelObj.onepiece,
+                        height: 79.v,
+                        width: 80.h,
+                        radius: BorderRadius.circular(12.h),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            )
           ],
         ),
       ),
