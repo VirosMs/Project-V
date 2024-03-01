@@ -1,0 +1,1124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+  <meta name="description" content="app_export library API docs, for the Dart programming language.">
+  <title>app_export library - Dart API</title>
+
+
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" rel="stylesheet">
+  
+  <link rel="stylesheet" href="../static-assets/github.css?v1">
+  <link rel="stylesheet" href="../static-assets/styles.css?v1">
+  <link rel="icon" href="../static-assets/favicon.png?v1">
+
+  
+</head>
+
+
+<body data-base-href="../" data-using-base-href="false" class="light-theme">
+
+<div id="overlay-under-drawer"></div>
+
+<header id="title">
+  <span id="sidenav-left-toggle" class="material-symbols-outlined" role="button" tabindex="0">menu</span>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="../index.html">project_v</a></li>
+    <li class="self-crumb">app_export library</li>
+  </ol>
+  <div class="self-name">app_export</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+  <div class="toggle" id="theme-button">
+    <label for="theme">
+      <input type="checkbox" id="theme" value="light-theme">
+      <span id="dark-theme-button" class="material-symbols-outlined">
+        brightness_4
+      </span>
+      <span id="light-theme-button" class="material-symbols-outlined">
+        brightness_5
+      </span>
+    </label>
+  </div>
+</header>
+<main>
+
+  <div
+      id="dartdoc-main-content"
+      class="main-content"
+      data-above-sidebar=""
+      data-below-sidebar="core_app_export&#47;core_app_export-library-sidebar.html">
+      
+      <div>
+<h1><span class="kind-library">app_export</span> library 
+ 
+</h1></div>
+
+    
+<section class="desc markdown">
+  <p>This file exports various dependencies and utilities used in the project.
+It includes:</p>
+<ul>
+<li>Connectivity package for managing network connectivity.</li>
+<li>Flutter Bloc package for state management.</li>
+<li>Exceptions for handling errors.</li>
+<li>NetworkInfo class for checking network availability.</li>
+<li>ImageConstant class for storing image paths.</li>
+<li>Logger class for logging messages.</li>
+<li>NavigatorService class for navigation management.</li>
+<li>PrefUtils class for managing shared preferences.</li>
+<li>SizeUtils class for handling screen size calculations.</li>
+<li>SelectionPopupModel class for representing selection popups.</li>
+<li>AppLocalization class for managing app localization.</li>
+<li>AppRoutes class for defining app routes.</li>
+<li>AppDecoration class for defining app decorations.</li>
+<li>CustomTextStyle class for defining custom text styles.</li>
+<li>ThemeHelper class for managing app themes.</li>
+<li>CustomImageView widget for displaying custom images.</li>
+<li>ThemeBloc for managing theme state.</li>
+<li>CustomButtonStyle class for defining custom button styles.</li>
+<li>DateTimeUtils class for handling date and time operations.</li>
+</ul>
+</section>
+
+
+    <section class="summary offset-anchor" id="classes">
+      <h2>Classes</h2>
+
+      <dl>
+        <dt id="AppDecoration">
+  <span class="name "><a href="../theme_app_decoration/AppDecoration-class.html">AppDecoration</a></span> 
+
+</dt>
+<dd>
+  A class that provides various decoration styles for the app.
+</dd>
+
+        <dt id="AppLocalization">
+  <span class="name "><a href="../localization_app_localization/AppLocalization-class.html">AppLocalization</a></span> 
+
+</dt>
+<dd>
+  A class that handles localization for the app.
+</dd>
+
+        <dt id="AppLocalizationDelegate">
+  <span class="name "><a href="../localization_app_localization/AppLocalizationDelegate-class.html">AppLocalizationDelegate</a></span> 
+
+</dt>
+<dd>
+  A delegate for the <a href="../localization_app_localization/AppLocalization-class.html">AppLocalization</a> class.
+</dd>
+
+        <dt id="AppRoutes">
+  <span class="name "><a href="../routes_app_routes/AppRoutes-class.html">AppRoutes</a></span> 
+
+</dt>
+<dd>
+  A class that defines the routes for the application.
+</dd>
+
+        <dt id="Bloc">
+  <span class="name "><a href="https://pub.dev/documentation/bloc/8.1.3/bloc/Bloc-class.html">Bloc</a><span class="signature">&lt;<wbr><span class="type-parameter">Event</span>, <span class="type-parameter">State</span>&gt;</span></span> 
+
+</dt>
+<dd>
+  Takes a <code>Stream</code> of <code>Events</code> as input
+and transforms them into a <code>Stream</code> of <code>States</code> as output.
+</dd>
+
+        <dt id="BlocBase">
+  <span class="name "><a href="https://pub.dev/documentation/bloc/8.1.3/bloc/BlocBase-class.html">BlocBase</a><span class="signature">&lt;<wbr><span class="type-parameter">State</span>&gt;</span></span> 
+
+</dt>
+<dd>
+  An interface for the core functionality implemented by
+both <a href="https://pub.dev/documentation/bloc/8.1.3/bloc/Bloc-class.html">Bloc</a> and <a href="https://pub.dev/documentation/bloc/8.1.3/bloc/Cubit-class.html">Cubit</a>.
+</dd>
+
+        <dt id="BlocBuilder">
+  <span class="name "><a href="https://pub.dev/documentation/flutter_bloc/8.1.4/flutter_bloc/BlocBuilder-class.html">BlocBuilder</a><span class="signature">&lt;<wbr><span class="type-parameter">B extends <a href="https://pub.dev/documentation/bloc/8.1.3/bloc/StateStreamable-class.html">StateStreamable</a><span class="signature">&lt;<wbr><span class="type-parameter">S</span>&gt;</span></span>, <span class="type-parameter">S</span>&gt;</span></span> 
+
+</dt>
+<dd>
+  <a href="https://pub.dev/documentation/flutter_bloc/8.1.4/flutter_bloc/BlocBuilder-class.html">BlocBuilder</a> handles building a widget in response to new <code>states</code>.
+<a href="https://pub.dev/documentation/flutter_bloc/8.1.4/flutter_bloc/BlocBuilder-class.html">BlocBuilder</a> is analogous to <a href="https://api.flutter.dev/flutter/widgets/StreamBuilder-class.html">StreamBuilder</a> but has simplified API to
+reduce the amount of boilerplate code needed as well as <a href="https://pub.dev/documentation/flutter_bloc/8.1.4/flutter_bloc/BlocBuilderBase/bloc.html">bloc</a>-specific
+performance improvements.
+Please refer to <a href="https://pub.dev/documentation/flutter_bloc/8.1.4/flutter_bloc/BlocListener-class.html">BlocListener</a> if you want to "do" anything in response to
+<code>state</code> changes such as navigation, showing a dialog, etc...
+</dd>
+
+        <dt id="BlocBuilderBase">
+  <span class="name "><a href="https://pub.dev/documentation/flutter_bloc/8.1.4/flutter_bloc/BlocBuilderBase-class.html">BlocBuilderBase</a><span class="signature">&lt;<wbr><span class="type-parameter">B extends <a href="https://pub.dev/documentation/bloc/8.1.3/bloc/StateStreamable-class.html">StateStreamable</a><span class="signature">&lt;<wbr><span class="type-parameter">S</span>&gt;</span></span>, <span class="type-parameter">S</span>&gt;</span></span> 
+
+</dt>
+<dd>
+  Base class for widgets that build themselves based on interaction with
+a specified <a href="https://pub.dev/documentation/flutter_bloc/8.1.4/flutter_bloc/BlocBuilderBase/bloc.html">bloc</a>.
+</dd>
+
+        <dt id="BlocConsumer">
+  <span class="name "><a href="https://pub.dev/documentation/flutter_bloc/8.1.4/flutter_bloc/BlocConsumer-class.html">BlocConsumer</a><span class="signature">&lt;<wbr><span class="type-parameter">B extends <a href="https://pub.dev/documentation/bloc/8.1.3/bloc/StateStreamable-class.html">StateStreamable</a><span class="signature">&lt;<wbr><span class="type-parameter">S</span>&gt;</span></span>, <span class="type-parameter">S</span>&gt;</span></span> 
+
+</dt>
+<dd>
+  <a href="https://pub.dev/documentation/flutter_bloc/8.1.4/flutter_bloc/BlocConsumer-class.html">BlocConsumer</a> exposes a <a href="https://pub.dev/documentation/flutter_bloc/8.1.4/flutter_bloc/BlocConsumer/builder.html">builder</a> and <a href="https://pub.dev/documentation/flutter_bloc/8.1.4/flutter_bloc/BlocConsumer/listener.html">listener</a> in order react to new
+states.
+<a href="https://pub.dev/documentation/flutter_bloc/8.1.4/flutter_bloc/BlocConsumer-class.html">BlocConsumer</a> is analogous to a nested <code>BlocListener</code>
+and <code>BlocBuilder</code> but reduces the amount of boilerplate needed.
+<a href="https://pub.dev/documentation/flutter_bloc/8.1.4/flutter_bloc/BlocConsumer-class.html">BlocConsumer</a> should only be used when it is necessary to both rebuild UI
+and execute other reactions to state changes in the <a href="https://pub.dev/documentation/flutter_bloc/8.1.4/flutter_bloc/BlocConsumer/bloc.html">bloc</a>.
+</dd>
+
+        <dt id="BlocEventSink">
+  <span class="name "><a href="https://pub.dev/documentation/bloc/8.1.3/bloc/BlocEventSink-class.html">BlocEventSink</a><span class="signature">&lt;<wbr><span class="type-parameter">Event extends <a href="https://api.flutter.dev/flutter/dart-core/Object-class.html">Object</a>?</span>&gt;</span></span> 
+
+</dt>
+<dd>
+  An <a href="https://pub.dev/documentation/bloc/8.1.3/bloc/ErrorSink-class.html">ErrorSink</a> that supports adding events.
+</dd>
+
+        <dt id="BlocListener">
+  <span class="name "><a href="https://pub.dev/documentation/flutter_bloc/8.1.4/flutter_bloc/BlocListener-class.html">BlocListener</a><span class="signature">&lt;<wbr><span class="type-parameter">B extends <a href="https://pub.dev/documentation/bloc/8.1.3/bloc/StateStreamable-class.html">StateStreamable</a><span class="signature">&lt;<wbr><span class="type-parameter">S</span>&gt;</span></span>, <span class="type-parameter">S</span>&gt;</span></span> 
+
+</dt>
+<dd>
+  Takes a <a href="https://pub.dev/documentation/flutter_bloc/8.1.4/flutter_bloc/BlocWidgetListener.html">BlocWidgetListener</a> and an optional <a href="https://pub.dev/documentation/flutter_bloc/8.1.4/flutter_bloc/BlocListenerBase/bloc.html">bloc</a> and invokes
+the <a href="https://pub.dev/documentation/flutter_bloc/8.1.4/flutter_bloc/BlocListenerBase/listener.html">listener</a> in response to <code>state</code> changes in the <a href="https://pub.dev/documentation/flutter_bloc/8.1.4/flutter_bloc/BlocListenerBase/bloc.html">bloc</a>.
+It should be used for functionality that needs to occur only in response to
+a <code>state</code> change such as navigation, showing a <code>SnackBar</code>, showing
+a <code>Dialog</code>, etc...
+The <a href="https://pub.dev/documentation/flutter_bloc/8.1.4/flutter_bloc/BlocListenerBase/listener.html">listener</a> is guaranteed to only be called once for each <code>state</code> change
+unlike the <code>builder</code> in <code>BlocBuilder</code>.
+</dd>
+
+        <dt id="BlocListenerBase">
+  <span class="name "><a href="https://pub.dev/documentation/flutter_bloc/8.1.4/flutter_bloc/BlocListenerBase-class.html">BlocListenerBase</a><span class="signature">&lt;<wbr><span class="type-parameter">B extends <a href="https://pub.dev/documentation/bloc/8.1.3/bloc/StateStreamable-class.html">StateStreamable</a><span class="signature">&lt;<wbr><span class="type-parameter">S</span>&gt;</span></span>, <span class="type-parameter">S</span>&gt;</span></span> 
+
+</dt>
+<dd>
+  Base class for widgets that listen to state changes in a specified <a href="https://pub.dev/documentation/flutter_bloc/8.1.4/flutter_bloc/BlocListenerBase/bloc.html">bloc</a>.
+</dd>
+
+        <dt id="BlocObserver">
+  <span class="name "><a href="https://pub.dev/documentation/bloc/8.1.3/bloc/BlocObserver-class.html">BlocObserver</a></span> 
+
+</dt>
+<dd>
+  An interface for observing the behavior of <a href="https://pub.dev/documentation/bloc/8.1.3/bloc/Bloc-class.html">Bloc</a> instances.
+</dd>
+
+        <dt id="BlocOverrides">
+  <span class="name "><a href="https://pub.dev/documentation/bloc/8.1.3/bloc/BlocOverrides-class.html">BlocOverrides</a></span> 
+
+</dt>
+<dd>
+  This class facilitates overriding <a href="https://pub.dev/documentation/bloc/8.1.3/bloc/BlocObserver-class.html">BlocObserver</a> and <a href="https://pub.dev/documentation/bloc/8.1.3/bloc/EventTransformer.html">EventTransformer</a>.
+It should be extended by another class in client code with overrides
+that construct a custom implementation. The implementation in this class
+defaults to the base <a class="deprecated" href="https://pub.dev/documentation/bloc/8.1.3/bloc/BlocOverrides/blocObserver.html">blocObserver</a> and <a class="deprecated" href="https://pub.dev/documentation/bloc/8.1.3/bloc/BlocOverrides/eventTransformer.html">eventTransformer</a> implementation.
+For example:
+</dd>
+
+        <dt id="BlocProvider">
+  <span class="name "><a href="https://pub.dev/documentation/flutter_bloc/8.1.4/flutter_bloc/BlocProvider-class.html">BlocProvider</a><span class="signature">&lt;<wbr><span class="type-parameter">T extends <a href="https://pub.dev/documentation/bloc/8.1.3/bloc/StateStreamableSource-class.html">StateStreamableSource</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/Object-class.html">Object</a>?</span>&gt;</span></span>&gt;</span></span> 
+
+</dt>
+<dd>
+  Takes a <a href="https://pub.dev/documentation/provider/6.1.1/provider/Create.html">Create</a> function that is responsible for
+creating the <a href="https://pub.dev/documentation/bloc/8.1.3/bloc/Bloc-class.html">Bloc</a> or <a href="https://pub.dev/documentation/bloc/8.1.3/bloc/Cubit-class.html">Cubit</a> and a <a href="https://pub.dev/documentation/flutter_bloc/8.1.4/flutter_bloc/BlocProvider/child.html">child</a> which will have access
+to the instance via <code>BlocProvider.of(context)</code>.
+It is used as a dependency injection (DI) widget so that a single instance
+of a <a href="https://pub.dev/documentation/bloc/8.1.3/bloc/Bloc-class.html">Bloc</a> or <a href="https://pub.dev/documentation/bloc/8.1.3/bloc/Cubit-class.html">Cubit</a> can be provided to multiple widgets within a subtree.
+</dd>
+
+        <dt id="BlocSelector">
+  <span class="name "><a href="https://pub.dev/documentation/flutter_bloc/8.1.4/flutter_bloc/BlocSelector-class.html">BlocSelector</a><span class="signature">&lt;<wbr><span class="type-parameter">B extends <a href="https://pub.dev/documentation/bloc/8.1.3/bloc/StateStreamable-class.html">StateStreamable</a><span class="signature">&lt;<wbr><span class="type-parameter">S</span>&gt;</span></span>, <span class="type-parameter">S</span>, <span class="type-parameter">T</span>&gt;</span></span> 
+
+</dt>
+<dd>
+  <a href="https://pub.dev/documentation/flutter_bloc/8.1.4/flutter_bloc/BlocSelector-class.html">BlocSelector</a> is analogous to <a href="https://pub.dev/documentation/flutter_bloc/8.1.4/flutter_bloc/BlocBuilder-class.html">BlocBuilder</a> but allows developers to
+filter updates by selecting a new value based on the bloc state.
+Unnecessary builds are prevented if the selected value does not change.
+</dd>
+
+        <dt id="BorderRadiusStyle">
+  <span class="name "><a href="../theme_app_decoration/BorderRadiusStyle-class.html">BorderRadiusStyle</a></span> 
+
+</dt>
+<dd>
+  A class that provides various border radius styles.
+</dd>
+
+        <dt id="Change">
+  <span class="name "><a href="https://pub.dev/documentation/bloc/8.1.3/bloc/Change-class.html">Change</a><span class="signature">&lt;<wbr><span class="type-parameter">State</span>&gt;</span></span> 
+
+</dt>
+<dd>
+  A <a href="https://pub.dev/documentation/bloc/8.1.3/bloc/Change-class.html">Change</a> represents the change from one <code>State</code> to another.
+A <a href="https://pub.dev/documentation/bloc/8.1.3/bloc/Change-class.html">Change</a> consists of the <a href="https://pub.dev/documentation/bloc/8.1.3/bloc/Change/currentState.html">currentState</a> and <a href="https://pub.dev/documentation/bloc/8.1.3/bloc/Change/nextState.html">nextState</a>.
+</dd>
+
+        <dt id="Closable">
+  <span class="name "><a href="https://pub.dev/documentation/bloc/8.1.3/bloc/Closable-class.html">Closable</a></span> 
+
+</dt>
+<dd>
+  An object that must be closed when no longer in use.
+</dd>
+
+        <dt id="ColorSchemes">
+  <span class="name "><a href="../theme_theme_helper/ColorSchemes-class.html">ColorSchemes</a></span> 
+
+</dt>
+<dd>
+  Class containing the supported color schemes.
+</dd>
+
+        <dt id="Connectivity">
+  <span class="name "><a href="https://pub.dev/documentation/connectivity_plus/5.0.2/connectivity_plus/Connectivity-class.html">Connectivity</a></span> 
+
+</dt>
+<dd>
+  Discover network connectivity configurations: Distinguish between WI-FI and cellular, check WI-FI status and more.
+</dd>
+
+        <dt id="ConnectivityPlusLinuxPlugin">
+  <span class="name "><a href="https://pub.dev/documentation/connectivity_plus/5.0.2/connectivity_plus/ConnectivityPlusLinuxPlugin-class.html">ConnectivityPlusLinuxPlugin</a></span> 
+
+</dt>
+<dd>
+  The Linux implementation of ConnectivityPlatform.
+</dd>
+
+        <dt id="Cubit">
+  <span class="name "><a href="https://pub.dev/documentation/bloc/8.1.3/bloc/Cubit-class.html">Cubit</a><span class="signature">&lt;<wbr><span class="type-parameter">State</span>&gt;</span></span> 
+
+</dt>
+<dd>
+  A <a href="https://pub.dev/documentation/bloc/8.1.3/bloc/Cubit-class.html">Cubit</a> is similar to <a href="https://pub.dev/documentation/bloc/8.1.3/bloc/Bloc-class.html">Bloc</a> but has no notion of events
+and relies on methods to <a href="https://pub.dev/documentation/bloc/8.1.3/bloc/BlocBase/emit.html">emit</a> new states.
+</dd>
+
+        <dt id="CustomButtonStyles">
+  <span class="name "><a href="../theme_custom_button_style/CustomButtonStyles-class.html">CustomButtonStyles</a></span> 
+
+</dt>
+<dd>
+  A class that offers pre-defined button styles for customizing button appearance.
+</dd>
+
+        <dt id="CustomImageView">
+  <span class="name "><a href="../widgets_custom_image_view/CustomImageView-class.html">CustomImageView</a></span> 
+
+</dt>
+<dd>
+  A custom image view widget that can be used to display different types of images.
+It provides options for customizing the image's height, width, color, alignment, and more.
+</dd>
+
+        <dt id="CustomTextStyles">
+  <span class="name "><a href="../theme_custom_text_style/CustomTextStyles-class.html">CustomTextStyles</a></span> 
+
+</dt>
+<dd>
+  A collection of pre-defined text styles for customizing text appearance,
+categorized by different font families and weights.
+Additionally, this class includes extensions on <a href="https://api.flutter.dev/flutter/painting/TextStyle-class.html">TextStyle</a> to easily apply specific font families to text.
+</dd>
+
+        <dt id="Emittable">
+  <span class="name "><a href="https://pub.dev/documentation/bloc/8.1.3/bloc/Emittable-class.html">Emittable</a><span class="signature">&lt;<wbr><span class="type-parameter">State extends <a href="https://api.flutter.dev/flutter/dart-core/Object-class.html">Object</a>?</span>&gt;</span></span> 
+
+</dt>
+<dd>
+  An object that can emit new states.
+</dd>
+
+        <dt id="Emitter">
+  <span class="name "><a href="https://pub.dev/documentation/bloc/8.1.3/bloc/Emitter-class.html">Emitter</a><span class="signature">&lt;<wbr><span class="type-parameter">State</span>&gt;</span></span> 
+
+</dt>
+<dd>
+  An <a href="https://pub.dev/documentation/bloc/8.1.3/bloc/Emitter-class.html">Emitter</a> is a class which is capable of emitting new states.
+</dd>
+
+        <dt id="ErrorSink">
+  <span class="name "><a href="https://pub.dev/documentation/bloc/8.1.3/bloc/ErrorSink-class.html">ErrorSink</a></span> 
+
+</dt>
+<dd>
+  A generic destination for errors.
+</dd>
+
+        <dt id="ImageConstant">
+  <span class="name "><a href="../core_utils_image_constant/ImageConstant-class.html">ImageConstant</a></span> 
+
+</dt>
+<dd>
+  A class that contains constant paths to image assets.
+</dd>
+
+        <dt id="Logger">
+  <span class="name "><a href="../core_utils_logger/Logger-class.html">Logger</a></span> 
+
+</dt>
+<dd>
+  A utility class for logging messages.
+</dd>
+
+        <dt id="MultiBlocListener">
+  <span class="name "><a href="https://pub.dev/documentation/flutter_bloc/8.1.4/flutter_bloc/MultiBlocListener-class.html">MultiBlocListener</a></span> 
+
+</dt>
+<dd>
+  Merges multiple <a href="https://pub.dev/documentation/flutter_bloc/8.1.4/flutter_bloc/BlocListener-class.html">BlocListener</a> widgets into one widget tree.
+</dd>
+
+        <dt id="MultiBlocProvider">
+  <span class="name "><a href="https://pub.dev/documentation/flutter_bloc/8.1.4/flutter_bloc/MultiBlocProvider-class.html">MultiBlocProvider</a></span> 
+
+</dt>
+<dd>
+  Merges multiple <a href="https://pub.dev/documentation/flutter_bloc/8.1.4/flutter_bloc/BlocProvider-class.html">BlocProvider</a> widgets into one widget tree.
+</dd>
+
+        <dt id="MultiRepositoryProvider">
+  <span class="name "><a href="https://pub.dev/documentation/flutter_bloc/8.1.4/flutter_bloc/MultiRepositoryProvider-class.html">MultiRepositoryProvider</a></span> 
+
+</dt>
+<dd>
+  Merges multiple <a href="https://pub.dev/documentation/flutter_bloc/8.1.4/flutter_bloc/RepositoryProvider-class.html">RepositoryProvider</a> widgets into one widget tree.
+</dd>
+
+        <dt id="NavigatorService">
+  <span class="name "><a href="../core_utils_navigator_service/NavigatorService-class.html">NavigatorService</a></span> 
+
+</dt>
+<dd>
+  A service class for navigating between screens in the app.
+</dd>
+
+        <dt id="NetworkInfo">
+  <span class="name "><a href="../core_network_network_info/NetworkInfo-class.html">NetworkInfo</a></span> 
+
+</dt>
+<dd>
+  Implementation of <a href="../core_network_network_info/NetworkInfoI-class.html">NetworkInfoI</a> using the <a href="https://pub.dev/documentation/connectivity_plus/5.0.2/connectivity_plus/Connectivity-class.html">Connectivity</a> package.
+</dd>
+
+        <dt id="NetworkInfoI">
+  <span class="name "><a href="../core_network_network_info/NetworkInfoI-class.html">NetworkInfoI</a></span> 
+
+</dt>
+<dd>
+  Abstraction for checking internet connectivity.
+</dd>
+
+        <dt id="PrefUtils">
+  <span class="name "><a href="../core_utils_pref_utils/PrefUtils-class.html">PrefUtils</a></span> 
+
+</dt>
+<dd>
+  A utility class for managing shared preferences.
+</dd>
+
+        <dt id="PrimaryColors">
+  <span class="name "><a href="../theme_theme_helper/PrimaryColors-class.html">PrimaryColors</a></span> 
+
+</dt>
+<dd>
+  Class containing custom colors for a primary theme.
+</dd>
+
+        <dt id="RepositoryProvider">
+  <span class="name "><a href="https://pub.dev/documentation/flutter_bloc/8.1.4/flutter_bloc/RepositoryProvider-class.html">RepositoryProvider</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span></span> 
+
+</dt>
+<dd>
+  Takes a <a href="https://pub.dev/documentation/provider/6.1.1/provider/Create.html">Create</a> function that is responsible for creating the repository
+and a <code>child</code> which will have access to the repository via
+<code>RepositoryProvider.of(context)</code>.
+It is used as a dependency injection (DI) widget so that a single instance
+of a repository can be provided to multiple widgets within a subtree.
+</dd>
+
+        <dt id="SelectionPopupModel">
+  <span class="name "><a href="../data_models_selectionPopupModel_selection_popup_model/SelectionPopupModel-class.html">SelectionPopupModel</a></span> 
+
+</dt>
+<dd>
+  SelectionPopupModel is a common model used for setting data into dropdowns.
+</dd>
+
+        <dt id="Sizer">
+  <span class="name "><a href="../core_utils_size_utils/Sizer-class.html">Sizer</a></span> 
+
+</dt>
+<dd>
+  A widget that provides responsiveness to its child widgets based on the device's orientation and type.
+</dd>
+
+        <dt id="SizeUtils">
+  <span class="name "><a href="../core_utils_size_utils/SizeUtils-class.html">SizeUtils</a></span> 
+
+</dt>
+<dd>
+  A utility class that provides information about the device's screen size and type.
+</dd>
+
+        <dt id="StateStreamable">
+  <span class="name "><a href="https://pub.dev/documentation/bloc/8.1.3/bloc/StateStreamable-class.html">StateStreamable</a><span class="signature">&lt;<wbr><span class="type-parameter">State</span>&gt;</span></span> 
+
+</dt>
+<dd>
+  A <a href="https://pub.dev/documentation/bloc/8.1.3/bloc/Streamable-class.html">Streamable</a> that provides synchronous access to the current <a href="https://pub.dev/documentation/bloc/8.1.3/bloc/StateStreamable/state.html">state</a>.
+</dd>
+
+        <dt id="StateStreamableSource">
+  <span class="name "><a href="https://pub.dev/documentation/bloc/8.1.3/bloc/StateStreamableSource-class.html">StateStreamableSource</a><span class="signature">&lt;<wbr><span class="type-parameter">State</span>&gt;</span></span> 
+
+</dt>
+<dd>
+  A <a href="https://pub.dev/documentation/bloc/8.1.3/bloc/StateStreamable-class.html">StateStreamable</a> that must be closed when no longer in use.
+</dd>
+
+        <dt id="Streamable">
+  <span class="name "><a href="https://pub.dev/documentation/bloc/8.1.3/bloc/Streamable-class.html">Streamable</a><span class="signature">&lt;<wbr><span class="type-parameter">State extends <a href="https://api.flutter.dev/flutter/dart-core/Object-class.html">Object</a>?</span>&gt;</span></span> 
+
+</dt>
+<dd>
+  An object that provides access to a stream of states over time.
+</dd>
+
+        <dt id="TextThemes">
+  <span class="name "><a href="../theme_theme_helper/TextThemes-class.html">TextThemes</a></span> 
+
+</dt>
+<dd>
+  Class containing the supported text theme styles.
+</dd>
+
+        <dt id="ThemeBloc">
+  <span class="name "><a href="../theme_bloc_theme_bloc/ThemeBloc-class.html">ThemeBloc</a></span> 
+
+</dt>
+<dd>
+  The <a href="../theme_bloc_theme_bloc/ThemeBloc-class.html">ThemeBloc</a> class is responsible for managing the theme state of the application.
+It extends the <a href="https://pub.dev/documentation/bloc/8.1.3/bloc/Bloc-class.html">Bloc</a> class from the <code>flutter_bloc</code> package.
+</dd>
+
+        <dt id="ThemeChangeEvent">
+  <span class="name "><a href="../theme_bloc_theme_bloc/ThemeChangeEvent-class.html">ThemeChangeEvent</a></span> 
+
+</dt>
+<dd>
+  An event that represents a change in the theme.
+</dd>
+
+        <dt id="ThemeEvent">
+  <span class="name "><a href="../theme_bloc_theme_bloc/ThemeEvent-class.html">ThemeEvent</a></span> 
+
+</dt>
+<dd>
+  The base class for all theme events.
+</dd>
+
+        <dt id="ThemeHelper">
+  <span class="name "><a href="../theme_theme_helper/ThemeHelper-class.html">ThemeHelper</a></span> 
+
+</dt>
+<dd>
+  Helper class for managing themes and colors.
+</dd>
+
+        <dt id="ThemeState">
+  <span class="name "><a href="../theme_bloc_theme_bloc/ThemeState-class.html">ThemeState</a></span> 
+
+</dt>
+<dd>
+  Represents the state of the theme in the application.
+</dd>
+
+        <dt id="Transition">
+  <span class="name "><a href="https://pub.dev/documentation/bloc/8.1.3/bloc/Transition-class.html">Transition</a><span class="signature">&lt;<wbr><span class="type-parameter">Event</span>, <span class="type-parameter">State</span>&gt;</span></span> 
+
+</dt>
+<dd>
+  A <a href="https://pub.dev/documentation/bloc/8.1.3/bloc/Transition-class.html">Transition</a> is the change from one state to another.
+Consists of the <a href="https://pub.dev/documentation/bloc/8.1.3/bloc/Change/currentState.html">currentState</a>, an <a href="https://pub.dev/documentation/bloc/8.1.3/bloc/Transition/event.html">event</a>, and the <a href="https://pub.dev/documentation/bloc/8.1.3/bloc/Change/nextState.html">nextState</a>.
+</dd>
+
+      </dl>
+    </section>
+
+
+    <section class="summary offset-anchor" id="extensions">
+      <h2>Extensions</h2>
+
+      <dl>
+        <dt id="DateTimeExtension">
+    <span class="name "><a href="../core_utils_date_time_utils/DateTimeExtension.html">DateTimeExtension</a></span> 
+
+</dt>
+<dd>
+    
+</dd>
+
+
+        <dt id="FormatExtension">
+    <span class="name "><a href="../core_utils_size_utils/FormatExtension.html">FormatExtension</a></span> 
+
+</dt>
+<dd>
+    An extension that provides formatting methods for double values.
+</dd>
+
+
+        <dt id="ImageTypeExtension">
+    <span class="name "><a href="../widgets_custom_image_view/ImageTypeExtension.html">ImageTypeExtension</a></span> 
+
+</dt>
+<dd>
+    Extension on the <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a> class to determine the type of the image.
+</dd>
+
+
+        <dt id="LocalizationExtension">
+    <span class="name "><a href="../localization_app_localization/LocalizationExtension.html">LocalizationExtension</a></span> 
+
+</dt>
+<dd>
+    An extension on <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a> that provides a shorthand for retrieving localized strings.
+</dd>
+
+
+        <dt id="ReadContext">
+    <span class="name "><a href="https://pub.dev/documentation/provider/6.1.1/provider/ReadContext.html">ReadContext</a></span> 
+
+</dt>
+<dd>
+    Exposes the <a href="https://pub.dev/documentation/provider/6.1.1/provider/ReadContext/read.html">read</a> method.
+</dd>
+
+
+        <dt id="ResponsiveExtension">
+    <span class="name "><a href="../core_utils_size_utils/ResponsiveExtension.html">ResponsiveExtension</a></span> 
+
+</dt>
+<dd>
+    An extension that provides responsive methods for setting padding, margin, height, and width based on the device's viewport.
+</dd>
+
+
+        <dt id="SelectContext">
+    <span class="name "><a href="https://pub.dev/documentation/provider/6.1.1/provider/SelectContext.html">SelectContext</a></span> 
+
+</dt>
+<dd>
+    Adds a <code>select</code> method on <a href="https://api.flutter.dev/flutter/widgets/BuildContext-class.html">BuildContext</a>.
+</dd>
+
+
+        <dt id="WatchContext">
+    <span class="name "><a href="https://pub.dev/documentation/provider/6.1.1/provider/WatchContext.html">WatchContext</a></span> 
+
+</dt>
+<dd>
+    Exposes the <a href="https://pub.dev/documentation/provider/6.1.1/provider/WatchContext/watch.html">watch</a> method.
+</dd>
+
+
+      </dl>
+    </section>
+
+    <section class="summary offset-anchor" id="constants">
+      <h2>Constants</h2>
+
+      <dl class="properties">
+        <dt id="dateTimeFormatPattern" class="constant">
+    <span class="name "><a href="../core_utils_date_time_utils/dateTimeFormatPattern-constant.html">dateTimeFormatPattern</a></span>
+  <span class="signature">&#8594; const <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  
+  
+
+    <div>
+      <span class="signature"><code>&#39;dd&#47;MM&#47;yyyy&#39;</code></span>
+    </div>
+</dd>
+
+        <dt id="FIGMA_DESIGN_HEIGHT" class="constant">
+    <span class="name "><a href="../core_utils_size_utils/FIGMA_DESIGN_HEIGHT-constant.html">FIGMA_DESIGN_HEIGHT</a></span>
+  <span class="signature">&#8594; const <a href="https://api.flutter.dev/flutter/dart-core/num-class.html">num</a></span>
+  
+
+</dt>
+<dd>
+  The height of the Figma design used as a reference for creating the UI responsively.
+  
+
+    <div>
+      <span class="signature"><code>800</code></span>
+    </div>
+</dd>
+
+        <dt id="FIGMA_DESIGN_STATUS_BAR" class="constant">
+    <span class="name "><a href="../core_utils_size_utils/FIGMA_DESIGN_STATUS_BAR-constant.html">FIGMA_DESIGN_STATUS_BAR</a></span>
+  <span class="signature">&#8594; const <a href="https://api.flutter.dev/flutter/dart-core/num-class.html">num</a></span>
+  
+
+</dt>
+<dd>
+  The height of the status bar in the Figma design.
+  
+
+    <div>
+      <span class="signature"><code>0</code></span>
+    </div>
+</dd>
+
+        <dt id="FIGMA_DESIGN_WIDTH" class="constant">
+    <span class="name "><a href="../core_utils_size_utils/FIGMA_DESIGN_WIDTH-constant.html">FIGMA_DESIGN_WIDTH</a></span>
+  <span class="signature">&#8594; const <a href="https://api.flutter.dev/flutter/dart-core/num-class.html">num</a></span>
+  
+
+</dt>
+<dd>
+  This file contains utility classes and extensions related to screen size and responsiveness.
+The width of the Figma design used as a reference for creating the UI responsively.
+  
+
+    <div>
+      <span class="signature"><code>360</code></span>
+    </div>
+</dd>
+
+      </dl>
+    </section>
+
+    <section class="summary offset-anchor" id="properties">
+      <h2>Properties</h2>
+
+      <dl class="properties">
+        <dt id="appTheme" class="property">
+  <span class="name"><a href="../theme_theme_helper/appTheme.html">appTheme</a></span>
+  <span class="signature">&#8594; <a href="../theme_theme_helper/PrimaryColors-class.html">PrimaryColors</a></span> 
+
+</dt>
+<dd>
+  Get the app theme colors.
+  <div class="features"><span class="feature">no setter</span></div>
+
+</dd>
+
+        <dt id="strokeAlignCenter" class="property">
+  <span class="name"><a href="../theme_app_decoration/strokeAlignCenter.html">strokeAlignCenter</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/double-class.html">double</a></span> 
+
+</dt>
+<dd>
+  Returns the stroke alignment value for center.
+  <div class="features"><span class="feature">no setter</span></div>
+
+</dd>
+
+        <dt id="strokeAlignInside" class="property">
+  <span class="name"><a href="../theme_app_decoration/strokeAlignInside.html">strokeAlignInside</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/double-class.html">double</a></span> 
+
+</dt>
+<dd>
+  Returns the stroke alignment value for inside.
+  <div class="features"><span class="feature">no setter</span></div>
+
+</dd>
+
+        <dt id="strokeAlignOutside" class="property">
+  <span class="name"><a href="../theme_app_decoration/strokeAlignOutside.html">strokeAlignOutside</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/double-class.html">double</a></span> 
+
+</dt>
+<dd>
+  Returns the stroke alignment value for outside.
+  <div class="features"><span class="feature">no setter</span></div>
+
+</dd>
+
+        <dt id="theme" class="property">
+  <span class="name"><a href="../theme_theme_helper/theme.html">theme</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/material/ThemeData-class.html">ThemeData</a></span> 
+
+</dt>
+<dd>
+  Get the app theme data.
+  <div class="features"><span class="feature">no setter</span></div>
+
+</dd>
+
+      </dl>
+    </section>
+
+
+    <section class="summary offset-anchor" id="enums">
+      <h2>Enums</h2>
+
+      <dl>
+        <dt id="ConnectivityResult">
+  <span class="name "><a href="https://pub.dev/documentation/connectivity_plus_platform_interface/1.2.4/connectivity_plus_platform_interface/ConnectivityResult.html">ConnectivityResult</a></span> 
+
+</dt>
+<dd>
+  Connection status check result.
+</dd>
+
+        <dt id="DeviceType">
+  <span class="name "><a href="../core_utils_size_utils/DeviceType.html">DeviceType</a></span> 
+
+</dt>
+<dd>
+  An enumeration representing the type of device (mobile, tablet, desktop).
+</dd>
+
+        <dt id="ImageType">
+  <span class="name "><a href="../widgets_custom_image_view/ImageType.html">ImageType</a></span> 
+
+</dt>
+<dd>
+  Enum representing the different types of images.
+</dd>
+
+        <dt id="LogMode">
+  <span class="name "><a href="../core_utils_logger/LogMode.html">LogMode</a></span> 
+
+</dt>
+<dd>
+  An enumeration representing the log mode.
+</dd>
+
+      </dl>
+    </section>
+
+    <section class="summary offset-anchor" id="typedefs">
+      <h2>Typedefs</h2>
+
+      <dl>
+          
+  <dt id="BlocBuilderCondition" class="callable">
+    <span class="name"><a href="https://pub.dev/documentation/flutter_bloc/8.1.4/flutter_bloc/BlocBuilderCondition.html">BlocBuilderCondition</a></span>&lt;<wbr><span class="type-parameter">S</span>&gt;<span class="signature">
+      <span class="returntype parameter">= <a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a> Function<span class="signature">(<span class="parameter" id="param-previous"><span class="type-annotation">S</span> <span class="parameter-name">previous</span>, </span><span class="parameter" id="param-current"><span class="type-annotation">S</span> <span class="parameter-name">current</span></span>)</span></span>
+    </span>
+    
+
+  </dt>
+  <dd>
+    Signature for the <code>buildWhen</code> function which takes the previous <code>state</code> and
+the current <code>state</code> and is responsible for returning a <a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a> which
+determines whether to rebuild <a href="https://pub.dev/documentation/flutter_bloc/8.1.4/flutter_bloc/BlocBuilder-class.html">BlocBuilder</a> with the current <code>state</code>.
+    
+
+  </dd>
+
+          
+  <dt id="BlocListenerCondition" class="callable">
+    <span class="name"><a href="https://pub.dev/documentation/flutter_bloc/8.1.4/flutter_bloc/BlocListenerCondition.html">BlocListenerCondition</a></span>&lt;<wbr><span class="type-parameter">S</span>&gt;<span class="signature">
+      <span class="returntype parameter">= <a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a> Function<span class="signature">(<span class="parameter" id="param-previous"><span class="type-annotation">S</span> <span class="parameter-name">previous</span>, </span><span class="parameter" id="param-current"><span class="type-annotation">S</span> <span class="parameter-name">current</span></span>)</span></span>
+    </span>
+    
+
+  </dt>
+  <dd>
+    Signature for the <code>listenWhen</code> function which takes the previous <code>state</code>
+and the current <code>state</code> and is responsible for returning a <a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a> which
+determines whether or not to call <a href="https://pub.dev/documentation/flutter_bloc/8.1.4/flutter_bloc/BlocWidgetListener.html">BlocWidgetListener</a> of <a href="https://pub.dev/documentation/flutter_bloc/8.1.4/flutter_bloc/BlocListener-class.html">BlocListener</a>
+with the current <code>state</code>.
+    
+
+  </dd>
+
+          
+  <dt id="BlocWidgetBuilder" class="callable">
+    <span class="name"><a href="https://pub.dev/documentation/flutter_bloc/8.1.4/flutter_bloc/BlocWidgetBuilder.html">BlocWidgetBuilder</a></span>&lt;<wbr><span class="type-parameter">S</span>&gt;<span class="signature">
+      <span class="returntype parameter">= <a href="https://api.flutter.dev/flutter/widgets/Widget-class.html">Widget</a> Function<span class="signature">(<span class="parameter" id="param-context"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/widgets/BuildContext-class.html">BuildContext</a></span> <span class="parameter-name">context</span>, </span><span class="parameter" id="param-state"><span class="type-annotation">S</span> <span class="parameter-name">state</span></span>)</span></span>
+    </span>
+    
+
+  </dt>
+  <dd>
+    Signature for the <code>builder</code> function which takes the <code>BuildContext</code> and
+<code>state</code> and is responsible for returning a widget which is to be rendered.
+This is analogous to the <code>builder</code> function in <a href="https://api.flutter.dev/flutter/widgets/StreamBuilder-class.html">StreamBuilder</a>.
+    
+
+  </dd>
+
+          
+  <dt id="BlocWidgetListener" class="callable">
+    <span class="name"><a href="https://pub.dev/documentation/flutter_bloc/8.1.4/flutter_bloc/BlocWidgetListener.html">BlocWidgetListener</a></span>&lt;<wbr><span class="type-parameter">S</span>&gt;<span class="signature">
+      <span class="returntype parameter">= void Function<span class="signature">(<span class="parameter" id="param-context"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/widgets/BuildContext-class.html">BuildContext</a></span> <span class="parameter-name">context</span>, </span><span class="parameter" id="param-state"><span class="type-annotation">S</span> <span class="parameter-name">state</span></span>)</span></span>
+    </span>
+    
+
+  </dt>
+  <dd>
+    Signature for the <code>listener</code> function which takes the <code>BuildContext</code> along
+with the <code>state</code> and is responsible for executing in response to
+<code>state</code> changes.
+    
+
+  </dd>
+
+          
+  <dt id="BlocWidgetSelector" class="callable">
+    <span class="name"><a href="https://pub.dev/documentation/flutter_bloc/8.1.4/flutter_bloc/BlocWidgetSelector.html">BlocWidgetSelector</a></span>&lt;<wbr><span class="type-parameter">S</span>, <span class="type-parameter">T</span>&gt;<span class="signature">
+      <span class="returntype parameter">= T Function<span class="signature">(<span class="parameter" id="param-state"><span class="type-annotation">S</span> <span class="parameter-name">state</span></span>)</span></span>
+    </span>
+    
+
+  </dt>
+  <dd>
+    Signature for the <code>selector</code> function which
+is responsible for returning a selected value, <code>T</code>, based on <code>state</code>.
+    
+
+  </dd>
+
+          
+  <dt id="EventHandler" class="callable">
+    <span class="name"><a href="https://pub.dev/documentation/bloc/8.1.3/bloc/EventHandler.html">EventHandler</a></span>&lt;<wbr><span class="type-parameter">Event</span>, <span class="type-parameter">State</span>&gt;<span class="signature">
+      <span class="returntype parameter">= <a href="https://api.flutter.dev/flutter/dart-async/FutureOr-class.html">FutureOr</a><span class="signature">&lt;<wbr><span class="type-parameter">void</span>&gt;</span> Function<span class="signature">(<span class="parameter" id="param-event"><span class="type-annotation">Event</span> <span class="parameter-name">event</span>, </span><span class="parameter" id="param-emit"><span class="type-annotation"><a href="https://pub.dev/documentation/bloc/8.1.3/bloc/Emitter-class.html">Emitter</a><span class="signature">&lt;<wbr><span class="type-parameter">State</span>&gt;</span></span> <span class="parameter-name">emit</span></span>)</span></span>
+    </span>
+    
+
+  </dt>
+  <dd>
+    An event handler is responsible for reacting to an incoming <code>Event</code>
+and can emit zero or more states via the <a href="https://pub.dev/documentation/bloc/8.1.3/bloc/Emitter-class.html">Emitter</a>.
+    
+
+  </dd>
+
+          
+  <dt id="EventMapper" class="callable">
+    <span class="name"><a href="https://pub.dev/documentation/bloc/8.1.3/bloc/EventMapper.html">EventMapper</a></span>&lt;<wbr><span class="type-parameter">Event</span>&gt;<span class="signature">
+      <span class="returntype parameter">= <a href="https://api.flutter.dev/flutter/dart-async/Stream-class.html">Stream</a><span class="signature">&lt;<wbr><span class="type-parameter">Event</span>&gt;</span> Function<span class="signature">(<span class="parameter" id="param-event"><span class="type-annotation">Event</span> <span class="parameter-name">event</span></span>)</span></span>
+    </span>
+    
+
+  </dt>
+  <dd>
+    Signature for a function which converts an incoming event
+into an outbound stream of events.
+Used when defining custom <a href="https://pub.dev/documentation/bloc/8.1.3/bloc/EventTransformer.html">EventTransformer</a>s.
+    
+
+  </dd>
+
+          
+  <dt id="EventTransformer" class="callable">
+    <span class="name"><a href="https://pub.dev/documentation/bloc/8.1.3/bloc/EventTransformer.html">EventTransformer</a></span>&lt;<wbr><span class="type-parameter">Event</span>&gt;<span class="signature">
+      <span class="returntype parameter">= <a href="https://api.flutter.dev/flutter/dart-async/Stream-class.html">Stream</a><span class="signature">&lt;<wbr><span class="type-parameter">Event</span>&gt;</span> Function<span class="signature">(<span class="parameter" id="param-events"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-async/Stream-class.html">Stream</a><span class="signature">&lt;<wbr><span class="type-parameter">Event</span>&gt;</span></span> <span class="parameter-name">events</span>, </span><span class="parameter" id="param-mapper"><span class="type-annotation"><a href="https://pub.dev/documentation/bloc/8.1.3/bloc/EventMapper.html">EventMapper</a><span class="signature">&lt;<wbr><span class="type-parameter">Event</span>&gt;</span></span> <span class="parameter-name">mapper</span></span>)</span></span>
+    </span>
+    
+
+  </dt>
+  <dd>
+    Used to change how events are processed.
+By default events are processed concurrently.
+    
+
+  </dd>
+
+          
+  <dt id="NetworkManagerClientFactory" class="callable">
+    <span class="name"><a href="https://pub.dev/documentation/connectivity_plus/5.0.2/connectivity_plus/NetworkManagerClientFactory.html">NetworkManagerClientFactory</a></span><span class="signature">
+      <span class="returntype parameter">= <a href="https://pub.dev/documentation/nm/0.5.0/nm/NetworkManagerClient-class.html">NetworkManagerClient</a> Function<span class="signature">()</span></span>
+    </span>
+    
+
+  </dt>
+  <dd>
+    
+    
+
+  </dd>
+
+          
+  <dt id="ResponsiveBuild" class="callable">
+    <span class="name"><a href="../core_utils_size_utils/ResponsiveBuild.html">ResponsiveBuild</a></span><span class="signature">
+      <span class="returntype parameter">= <a href="https://api.flutter.dev/flutter/widgets/Widget-class.html">Widget</a> Function<span class="signature">(<span class="parameter" id="param-context"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/widgets/BuildContext-class.html">BuildContext</a></span> <span class="parameter-name">context</span>, </span><span class="parameter" id="param-orientation"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/widgets/Orientation.html">Orientation</a></span> <span class="parameter-name">orientation</span>, </span><span class="parameter" id="param-deviceType"><span class="type-annotation"><a href="../core_utils_size_utils/DeviceType.html">DeviceType</a></span> <span class="parameter-name">deviceType</span></span>)</span></span>
+    </span>
+    
+
+  </dt>
+  <dd>
+    A function type used for building responsive widgets.
+    
+
+  </dd>
+
+      </dl>
+    </section>
+
+    <section class="summary offset-anchor" id="exceptions">
+      <h2>Exceptions / Errors</h2>
+
+      <dl>
+        <dt id="CacheException">
+  <span class="name "><a href="../core_errors_exceptions/CacheException-class.html">CacheException</a></span> 
+
+</dt>
+<dd>
+  Represents an exception that occurs when there is an issue with the cache.
+</dd>
+
+        <dt id="NetworkException">
+  <span class="name "><a href="../core_errors_exceptions/NetworkException-class.html">NetworkException</a></span> 
+
+</dt>
+<dd>
+  Represents an exception that occurs when there is a network issue.
+</dd>
+
+        <dt id="NoInternetException">
+  <span class="name "><a href="../core_errors_exceptions/NoInternetException-class.html">NoInternetException</a></span> 
+
+</dt>
+<dd>
+  Represents an exception that occurs when there is no internet connection.
+Can be used for throwing <a href="../core_errors_exceptions/NoInternetException-class.html">NoInternetException</a>.
+</dd>
+
+        <dt id="ProviderNotFoundException">
+  <span class="name "><a href="https://pub.dev/documentation/provider/6.1.1/provider/ProviderNotFoundException-class.html">ProviderNotFoundException</a></span> 
+
+</dt>
+<dd>
+  The error that will be thrown if <a href="https://pub.dev/documentation/provider/6.1.1/provider/Provider/of.html">Provider.of</a> fails to find a <a href="https://pub.dev/documentation/provider/6.1.1/provider/Provider-class.html">Provider</a>
+as an ancestor of the <a href="https://api.flutter.dev/flutter/widgets/BuildContext-class.html">BuildContext</a> used.
+</dd>
+
+        <dt id="ServerException">
+  <span class="name "><a href="../core_errors_exceptions/ServerException-class.html">ServerException</a></span> 
+
+</dt>
+<dd>
+  Represents an exception that occurs when there is an issue with the server.
+</dd>
+
+      </dl>
+    </section>
+
+  </div> <!-- /.main-content -->
+
+  <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
+    <!-- The search input and breadcrumbs below are only responsively visible at low resolutions. -->
+<header id="header-search-sidebar" class="hidden-l">
+  <form class="search-sidebar" role="search">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+
+<ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+    <li><a href="../index.html">project_v</a></li>
+    <li class="self-crumb">app_export library</li>
+</ol>
+
+
+    <h5><span class="package-name">project_v</span> <span class="package-kind">package</span></h5>
+    <ol>
+      <li class="section-title">Libraries</li>
+      <li><a href="../data_apiClient_api_client/data_apiClient_api_client-library.html">api_client</a></li>
+      <li><a href="../theme_app_decoration/theme_app_decoration-library.html">app_decoration</a></li>
+      <li><a href="../core_app_export/core_app_export-library.html">app_export</a></li>
+      <li><a href="../localization_app_localization/localization_app_localization-library.html">app_localization</a></li>
+      <li><a href="../screens_app_navigation_screen_bloc_app_navigation_bloc/screens_app_navigation_screen_bloc_app_navigation_bloc-library.html">app_navigation_bloc</a></li>
+      <li><a href="../screens_app_navigation_screen_models_app_navigation_model/screens_app_navigation_screen_models_app_navigation_model-library.html">app_navigation_model</a></li>
+      <li><a href="../screens_app_navigation_screen_app_navigation_screen/screens_app_navigation_screen_app_navigation_screen-library.html">app_navigation_screen</a></li>
+      <li><a href="../routes_app_routes/routes_app_routes-library.html">app_routes</a></li>
+      <li><a href="../widgets_base_button/widgets_base_button-library.html">base_button</a></li>
+      <li><a href="../screens_container_screen_bloc_container_bloc/screens_container_screen_bloc_container_bloc-library.html">container_bloc</a></li>
+      <li><a href="../widgets_app_bar_custom_app_bar/widgets_app_bar_custom_app_bar-library.html">custom_app_bar</a></li>
+      <li><a href="../widgets_custom_bottom_bar/widgets_custom_bottom_bar-library.html">custom_bottom_bar</a></li>
+      <li><a href="../theme_custom_button_style/theme_custom_button_style-library.html">custom_button_style</a></li>
+      <li><a href="../widgets_custom_checkbox_button/widgets_custom_checkbox_button-library.html">custom_checkbox_button</a></li>
+      <li><a href="../widgets_custom_elevated_button/widgets_custom_elevated_button-library.html">custom_elevated_button</a></li>
+      <li><a href="../widgets_custom_floating_text_field/widgets_custom_floating_text_field-library.html">custom_floating_text_field</a></li>
+      <li><a href="../widgets_custom_image_view/widgets_custom_image_view-library.html">custom_image_view</a></li>
+      <li><a href="../widgets_custom_search_view/widgets_custom_search_view-library.html">custom_search_view</a></li>
+      <li><a href="../theme_custom_text_style/theme_custom_text_style-library.html">custom_text_style</a></li>
+      <li><a href="../core_utils_date_time_utils/core_utils_date_time_utils-library.html">date_time_utils</a></li>
+      <li><a href="../localization_en_us_en_us_translations/localization_en_us_en_us_translations-library.html">en_us_translations</a></li>
+      <li><a href="../core_errors_exceptions/core_errors_exceptions-library.html">exceptions</a></li>
+      <li><a href="../core_errors_failures/core_errors_failures-library.html">failures</a></li>
+      <li><a href="../screens_favorite_page_bloc_favorite_bloc/screens_favorite_page_bloc_favorite_bloc-library.html">favorite_bloc</a></li>
+      <li><a href="../screens_favorite_page_models_favorite_item_model/screens_favorite_page_models_favorite_item_model-library.html">favorite_item_model</a></li>
+      <li><a href="../screens_favorite_page_widgets_favorite_item_widget/screens_favorite_page_widgets_favorite_item_widget-library.html">favorite_item_widget</a></li>
+      <li><a href="../screens_favorite_page_models_favorite_model/screens_favorite_page_models_favorite_model-library.html">favorite_model</a></li>
+      <li><a href="../screens_favorite_page_favorite_page/screens_favorite_page_favorite_page-library.html">favorite_page</a></li>
+      <li><a href="../screens_home_page_bloc_home_bloc/screens_home_page_bloc_home_bloc-library.html">home_bloc</a></li>
+      <li><a href="../screens_container_screen_models_home_container_model/screens_container_screen_models_home_container_model-library.html">home_container_model</a></li>
+      <li><a href="../screens_container_screen_home_container_screen/screens_container_screen_home_container_screen-library.html">home_container_screen</a></li>
+      <li><a href="../screens_home_page_models_home_model/screens_home_page_models_home_model-library.html">home_model</a></li>
+      <li><a href="../screens_home_page_home_page/screens_home_page_home_page-library.html">home_page</a></li>
+      <li><a href="../core_utils_image_constant/core_utils_image_constant-library.html">image_constant</a></li>
+      <li><a href="../core_utils_logger/core_utils_logger-library.html">logger</a></li>
+      <li><a href="../screens_login_screen_bloc_login_bloc/screens_login_screen_bloc_login_bloc-library.html">login_bloc</a></li>
+      <li><a href="../screens_login_screen_models_login_model/screens_login_screen_models_login_model-library.html">login_model</a></li>
+      <li><a href="../screens_login_screen_login_screen/screens_login_screen_login_screen-library.html">login_screen</a></li>
+      <li><a href="../main/main-library.html">main</a></li>
+      <li><a href="../core_utils_navigator_service/core_utils_navigator_service-library.html">navigator_service</a></li>
+      <li><a href="../core_network_network_info/core_network_network_info-library.html">network_info</a></li>
+      <li><a href="../core_utils_pref_utils/core_utils_pref_utils-library.html">pref_utils</a></li>
+      <li><a href="../core_utils_progress_dialog_utils/core_utils_progress_dialog_utils-library.html">progress_dialog_utils</a></li>
+      <li><a href="../screens_register_screen_bloc_register_bloc/screens_register_screen_bloc_register_bloc-library.html">register_bloc</a></li>
+      <li><a href="../screens_register_screen_models_register_model/screens_register_screen_models_register_model-library.html">register_model</a></li>
+      <li><a href="../screens_register_screen_register_screen/screens_register_screen_register_screen-library.html">register_screen</a></li>
+      <li><a href="../data_models_selectionPopupModel_selection_popup_model/data_models_selectionPopupModel_selection_popup_model-library.html">selection_popup_model</a></li>
+      <li><a href="../core_utils_size_utils/core_utils_size_utils-library.html">size_utils</a></li>
+      <li><a href="../screens_splash_screen_bloc_splash_bloc/screens_splash_screen_bloc_splash_bloc-library.html">splash_bloc</a></li>
+      <li><a href="../screens_splash_screen_models_splash_model/screens_splash_screen_models_splash_model-library.html">splash_model</a></li>
+      <li><a href="../screens_splash_screen_splash_screen/screens_splash_screen_splash_screen-library.html">splash_screen</a></li>
+      <li><a href="../theme_bloc_theme_bloc/theme_bloc_theme_bloc-library.html">theme_bloc</a></li>
+      <li><a href="../theme_theme_helper/theme_theme_helper-library.html">theme_helper</a></li>
+      <li><a href="../core_utils_validation_functions/core_utils_validation_functions-library.html">validation_functions</a></li>
+</ol>
+
+  </div>
+
+  <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
+    <h5>app_export library</h5>
+  </div><!--/sidebar-offcanvas-right-->
+
+</main>
+
+<footer>
+  <span class="no-break">
+    project_v
+      1.0.0+1
+  </span>
+
+  
+</footer>
+
+
+
+<script src="../static-assets/highlight.pack.js?v1"></script>
+<script src="../static-assets/docs.dart.js"></script>
+
+
+
+</body>
+
+</html>
+
