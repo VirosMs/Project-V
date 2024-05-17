@@ -1,5 +1,7 @@
 import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
+import 'package:project_v/data/apiClient/api_client.dart';
+import 'package:project_v/entity/user.dart';
 import '/core/app_export.dart';
 import 'package:project_v/screens/register_screen/models/register_model.dart';
 part 'register_event.dart';
@@ -58,5 +60,24 @@ class RegisterBloc extends Bloc<RegisterEvent, RegisterState> {
       isShowPassword1: true,
       container: false,
     ));
+  }
+
+  Future<bool> registerUser(String email, String password, String name) async {
+
+    User user = User(
+      name: state.nameController!.text,
+      email: state.emailController!.text,
+      password: state.passwordController!.text,
+    );
+
+    ApiClient apiClient = ApiClient();
+
+    bool isUserCreated = await apiClient.createUser(user);
+
+    if (isUserCreated) {
+      return true;
+    } else {
+      return false;
+    }    
   }
 }
