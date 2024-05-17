@@ -1,3 +1,4 @@
+import 'package:email_validator/email_validator.dart';
 import 'package:project_v/core/utils/validation_functions.dart';
 import 'package:project_v/widgets/custom_floating_text_field.dart';
 import 'package:project_v/widgets/custom_elevated_button.dart';
@@ -115,11 +116,11 @@ class LoginScreen extends StatelessWidget {
                 textInputType: TextInputType.emailAddress,
                 validator: (value) {
                   if (value == null ||
-                      (!isValidEmail(value, isRequired: true))) {
+                     EmailValidator.validate(value) == false){
                     return "err_msg_please_enter_valid_email".tr;
                   }
                   return null;
-                },
+                }, autovalidateMode: AutovalidateMode.onUserInteraction,
               );
             },
           ),
@@ -171,7 +172,7 @@ class LoginScreen extends StatelessWidget {
                     return "err_msg_please_enter_valid_password".tr;
                   }
                   return null;
-                },
+                }, autovalidateMode: AutovalidateMode.onUserInteraction,
               );
             },
           ),

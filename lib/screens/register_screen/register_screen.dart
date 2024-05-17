@@ -1,3 +1,4 @@
+import 'package:email_validator/email_validator.dart';
 import 'package:project_v/core/utils/validation_functions.dart';
 import 'package:project_v/widgets/custom_floating_text_field.dart';
 import 'package:project_v/widgets/custom_checkbox_button.dart';
@@ -118,6 +119,7 @@ class RegisterScreen extends StatelessWidget {
           labelStyle: theme.textTheme.bodyLarge!,
           hintText: "lbl_name".tr,
           alignment: Alignment.bottomCenter,
+          autovalidateMode: AutovalidateMode.onUserInteraction,
           validator: (value) {
             if (!isText(value)) {
               return "err_msg_please_enter_valid_text".tr;
@@ -143,8 +145,9 @@ class RegisterScreen extends StatelessWidget {
           hintText: "lbl_email".tr,
           textInputType: TextInputType.emailAddress,
           alignment: Alignment.bottomCenter,
+          autovalidateMode: AutovalidateMode.onUserInteraction,
           validator: (value) {
-            if (value == null || (!isValidEmail(value, isRequired: true))) {
+            if (value == null || EmailValidator.validate(value) == false) {
               return "err_msg_please_enter_valid_email".tr;
             }
             return null;
@@ -193,6 +196,7 @@ class RegisterScreen extends StatelessWidget {
               }
               return null;
             },
+            autovalidateMode: AutovalidateMode.onUserInteraction,
           );
         },
       ),
@@ -239,6 +243,7 @@ class RegisterScreen extends StatelessWidget {
               }
               return null;
             },
+            autovalidateMode: AutovalidateMode.onUserInteraction,
           );
         },
       ),
@@ -275,12 +280,30 @@ class RegisterScreen extends StatelessWidget {
   /// Builds the register button.
   Widget _buildButtonRegister(BuildContext context) {
     return CustomElevatedButton(
-      height: 42.v,
-      text: "lbl_register".tr,
-      margin: EdgeInsets.symmetric(horizontal: 46.h),
-      alignment: Alignment.center,
-      onPressed: () =>
-          Navigator.pushNamed(context, AppRoutes.homeContainerScreen),
-    );
+        height: 42.v,
+        text: "lbl_register".tr,
+        margin: EdgeInsets.symmetric(horizontal: 46.h),
+        alignment: Alignment.center,
+        onPressed: () async {
+          if (_formKey.currentState!.validate()) {
+            Future<bool> isRegistred = context.read<RegisterBloc>().registerUser(
+                context.read<RegisterBloc>().state.emailController!.text,
+                context.read<RegisterBloc>().state.passwordController!.text,
+                context.read<RegisterBloc>().state.nameController!.text
+            );
+            if (await isRegistred) {
+              Navigator.pushNamed(context, AppRoutes.homeContainerScreen);
+            }else{
+              ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                content: Text("err_we_cannot_register_your_user_try_again_later".tr),
+              ));
+            }
+          } else {
+            ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+              content: Text("err_msg_please_enter_valid_data".tr),
+            ));
+          }
+          //Navigator.pushNamed(context, AppRoutes.homeContainerScreen);
+        });
   }
 }
