@@ -1,11 +1,16 @@
+import 'dart:math';
+
 import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
 import 'package:project_v/data/apiClient/api_client.dart';
 import 'package:project_v/entity/user.dart';
 import '/core/app_export.dart';
 import 'package:project_v/screens/register_screen/models/register_model.dart';
+import 'package:logger/logger.dart' as logger_package;
 part 'register_event.dart';
 part 'register_state.dart';
+
+logger_package.Logger logger = logger_package.Logger();
 
 /// A bloc that manages the state of a Register according to the event that is dispatched to it.
 class RegisterBloc extends Bloc<RegisterEvent, RegisterState> {
@@ -62,8 +67,8 @@ class RegisterBloc extends Bloc<RegisterEvent, RegisterState> {
     ));
   }
 
-  Future<bool> registerUser(String email, String password, String name) async {
-
+  Future registerUser(String email, String password, String name) async {
+    logger.i('Register user: $name');
     User user = User(
       name: state.nameController!.text,
       email: state.emailController!.text,
@@ -72,12 +77,12 @@ class RegisterBloc extends Bloc<RegisterEvent, RegisterState> {
 
     ApiClient apiClient = ApiClient();
 
-    bool isUserCreated = await apiClient.createUser(user);
-
-    if (isUserCreated) {
+    await apiClient.createUser(user).catchError((e) {
+      logger.e('Error: $e');
+      throw e;
+    }).then((value) {
+      logger.i('User created');
       return true;
-    } else {
-      return false;
-    }    
+    });
   }
 }
