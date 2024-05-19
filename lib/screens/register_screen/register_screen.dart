@@ -9,13 +9,11 @@ import 'package:project_v/core/app_export.dart';
 import 'bloc/register_bloc.dart';
 
 /// The screen for user registration.
-class RegisterScreen extends StatelessWidget {
+class RegisterScreen extends StatefulWidget {
   RegisterScreen({Key? key})
       : super(
           key: key,
         );
-
-  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
   /// Creates a new instance of [RegisterScreen] wrapped in a [BlocProvider].
   static Widget builder(BuildContext context) {
@@ -27,6 +25,15 @@ class RegisterScreen extends StatelessWidget {
       child: RegisterScreen(),
     );
   }
+
+  @override
+  _RegisterScreenState createState() => _RegisterScreenState();
+}
+
+/// The screen for user registration.
+class _RegisterScreenState extends State<RegisterScreen> {
+  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+  bool _isRegistering = false;
 
   @override
   Widget build(BuildContext context) {
@@ -284,26 +291,50 @@ class RegisterScreen extends StatelessWidget {
         text: "lbl_register".tr,
         margin: EdgeInsets.symmetric(horizontal: 46.h),
         alignment: Alignment.center,
-        onPressed: () async {
-          if (_formKey.currentState!.validate()) {
-            Future<bool> isRegistred = context.read<RegisterBloc>().registerUser(
-                context.read<RegisterBloc>().state.emailController!.text,
-                context.read<RegisterBloc>().state.passwordController!.text,
-                context.read<RegisterBloc>().state.nameController!.text
-            );
-            if (await isRegistred) {
-              Navigator.pushNamed(context, AppRoutes.homeContainerScreen);
-            }else{
-              ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                content: Text("err_we_cannot_register_your_user_try_again_later".tr),
-              ));
-            }
-          } else {
-            ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-              content: Text("err_msg_please_enter_valid_data".tr),
-            ));
-          }
-          //Navigator.pushNamed(context, AppRoutes.homeContainerScreen);
-        });
+        onPressed: () => signUp(context));
+  }
+
+  Future<void> signUp(BuildContext context) async {
+    if (_isRegistering || !_formKey.currentState!.validate()) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('err_msg_failed_to_create_user'.tr)),
+      );
+      return;
+    }
+    setState(() {
+      _isRegistering = true;
+    });
+
+    showDialog(
+      context: context,
+      barrierDismissible: false,
+      builder: (BuildContext context) {
+        return Dialog(
+          backgroundColor: Colors.transparent,
+          child: Center(
+            child: CircularProgressIndicator(),
+          ),
+        );
+      },
+    );
+
+
+
+    context
+        .read<RegisterBloc>()
+        .registerUser(
+            context.read<RegisterBloc>().state.emailController!.text,
+            context.read<RegisterBloc>().state.passwordController!.text,
+            context.read<RegisterBloc>().state.nameController!.text)
+        .catchError((e) {
+      MyDialogExeception(message: e.toString()).showDialogWithDelay(context);
+    }).then((value) => {
+              Navigator.pop(context),
+              Navigator.pushNamed(context, AppRoutes.homePage)
+            });
+
+    setState(() {
+      _isRegistering = false;
+    });
   }
 }
