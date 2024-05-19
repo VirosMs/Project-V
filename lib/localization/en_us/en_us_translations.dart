@@ -45,4 +45,20 @@ final Map<String, String> enUs = {
   "err_msg_please_enter_valid_email": "Please enter valid email",
   "err_msg_please_enter_valid_password": "Please enter valid password",
   "err_msg_please_enter_valid_text": "Please enter valid text",
+
+  // Exception Error String
+  "err_msg_email_or_password_is_empty": "Email or password is empty",
+  "err_msg_email_name_or_password_is_empty": "Email, name or password is empty",
+  "err_msg_user_not_found": "User not found",
+  "err_msg_unauthorized": "Unauthorized",
+  "err_msg_bad_request": "Bad Request",
+  "err_msg_internal_server_error": "Internal Server Error",
+  "err_msg_failed_to_load_user": "Failed to load user",
+  "err_msg_conflict": "Conflict",
+  "err_msg_failed_to_create_user": "Failed to create user",
+  "err_msg_failed_api_connection": "Failed API connection",
+  "err_msg_user_already_exists": "User already exists",
+  "err_msg_timeout": "Timeout",
+
+
 };
