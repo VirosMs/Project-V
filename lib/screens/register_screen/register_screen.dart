@@ -268,7 +268,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
         selector: (state) => state.container,
         builder: (context, container) {
           return Padding(
-            padding: EdgeInsets.symmetric(horizontal: 15.h),
+            padding: EdgeInsets.symmetric(horizontal: 10.h),
             child: TermsAndConditions(
               value: _acceptedTerms,
               onChanged: (bool? value) {
@@ -291,7 +291,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
         text: "lbl_register".tr,
         margin: EdgeInsets.symmetric(horizontal: 46.h),
         alignment: Alignment.center,
-        onPressed: _acceptedTerms ? () => signUp(context) : null);
+        onPressed: _acceptedTerms ? () => signUp(context) : null); //TODO: Pop Up 
   }
 
   /// Section Widget
