@@ -1,3 +1,4 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart' show rootBundle;
 import 'package:flutter_markdown/flutter_markdown.dart';
@@ -62,21 +63,29 @@ class _TermsAndConditionsState extends State<TermsAndConditions> {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        CheckboxListTile(
-          title: Text(
-              "He leído y acepto los Términos y Condiciones de Privacidad"),
-          value: widget.value,
-          onChanged: widget.onChanged,
-          controlAffinity: ListTileControlAffinity.leading,
+    return CheckboxListTile(
+      title: RichText(
+        text: TextSpan(
+          children: [
+            TextSpan(
+              text: "He leído y acepto los ",
+              style: DefaultTextStyle.of(context).style,
+            ),
+            TextSpan(
+              text: "Términos y Condiciones de Privacidad",
+              style: TextStyle(
+                color: Theme.of(context).primaryColor,
+                decoration: TextDecoration.underline,
+              ),
+              recognizer: TapGestureRecognizer()
+                ..onTap = _showTermsDialog,
+            ),
+          ],
         ),
-        TextButton(
-          onPressed: _showTermsDialog,
-          child: Text("Ver Términos y Condiciones"),
-        ),
-      ],
+      ),
+      value: widget.value,
+      onChanged: widget.onChanged,
+      controlAffinity: ListTileControlAffinity.leading,
     );
   }
 }
