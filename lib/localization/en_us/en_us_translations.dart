@@ -36,6 +36,10 @@ final Map<String, String> enUs = {
   "lbl_password": "Password",
   "msg_introduce_your_email": "Introduce your Email",
   "msg_introduce_your_password": "Introduce your password",
+  "msg_terms_and_conditions": "Terms and conditions of privacy",
+  "msg_terms_and_conditions_1": "I accept the ",
+  "msg_terms_and_conditions_2": "terms and conditions of privacy",
+  "msg_close": "Close",
 
 // Network Error String
   "msg_network_err": "Network Error",

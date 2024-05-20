@@ -2,6 +2,7 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart' show rootBundle;
 import 'package:flutter_markdown/flutter_markdown.dart';
+import 'package:project_v/core/app_export.dart';
 
 class TermsAndConditions extends StatefulWidget {
   final bool value;
@@ -27,7 +28,7 @@ class _TermsAndConditionsState extends State<TermsAndConditions> {
   }
 
   Future<void> _loadTerms() async {
-    final terms = await rootBundle.loadString('assets/docs/terms.md');
+    final terms = await rootBundle.loadString('assets/docs/terms_en.md');
     setState(() {
       _termsText = terms;
     });
@@ -38,7 +39,7 @@ class _TermsAndConditionsState extends State<TermsAndConditions> {
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          title: Text("Términos y Condiciones de Privacidad"),
+          title: Text('msg_terms_and_conditions'.tr),
           content: SingleChildScrollView(
             child: Container(
               height: MediaQuery.of(context).size.height * 0.5,
@@ -50,7 +51,7 @@ class _TermsAndConditionsState extends State<TermsAndConditions> {
           ),
           actions: <Widget>[
             TextButton(
-              child: Text("Cerrar"),
+              child: Text('msg_close'.tr),
               onPressed: () {
                 Navigator.of(context).pop();
               },
@@ -68,11 +69,11 @@ class _TermsAndConditionsState extends State<TermsAndConditions> {
         text: TextSpan(
           children: [
             TextSpan(
-              text: "He leído y acepto los ",
+              text: 'msg_terms_and_conditions_1'.tr,
               style: DefaultTextStyle.of(context).style,
             ),
             TextSpan(
-              text: "Términos y Condiciones de Privacidad",
+              text: 'msg_terms_and_conditions_2'.tr,
               style: TextStyle(
                 color: Theme.of(context).primaryColor,
                 decoration: TextDecoration.underline,

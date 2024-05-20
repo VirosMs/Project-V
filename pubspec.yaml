@@ -29,7 +29,9 @@ flutter:
   assets: 
     - assets/
     - assets/images/
-    - assets/docs/terms.md
+    - assets/docs/terms_es.md
+    - assets/docs/terms_en.md
+
   fonts: 
     - family: Roboto
       fonts: 

@@ -1,7 +1,6 @@
 import 'package:email_validator/email_validator.dart';
 import 'package:project_v/core/utils/validation_functions.dart';
 import 'package:project_v/widgets/custom_floating_text_field.dart';
-import 'package:project_v/widgets/custom_checkbox_button.dart';
 import 'package:project_v/widgets/custom_elevated_button.dart';
 import 'package:project_v/widgets/show_terms_dialog.dart';
 import 'models/register_model.dart';
