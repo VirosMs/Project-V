@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart' show rootBundle;
+import 'package:flutter_markdown/flutter_markdown.dart';
 
 class TermsAndConditions extends StatefulWidget {
   final bool value;
@@ -18,7 +19,6 @@ class TermsAndConditions extends StatefulWidget {
 class _TermsAndConditionsState extends State<TermsAndConditions> {
   String _termsText = "";
 
-
   @override
   void initState() {
     super.initState();
@@ -26,7 +26,7 @@ class _TermsAndConditionsState extends State<TermsAndConditions> {
   }
 
   Future<void> _loadTerms() async {
-    final terms = await rootBundle.loadString('assets/docs/terms.txt');
+    final terms = await rootBundle.loadString('assets/docs/terms.md');
     setState(() {
       _termsText = terms;
     });
@@ -39,7 +39,13 @@ class _TermsAndConditionsState extends State<TermsAndConditions> {
         return AlertDialog(
           title: Text("Términos y Condiciones de Privacidad"),
           content: SingleChildScrollView(
-            child: Text(_termsText),
+            child: Container(
+              height: MediaQuery.of(context).size.height * 0.5,
+              width: MediaQuery.of(context).size.width * 0.8,
+              child: Markdown(
+                data: _termsText,
+              ),
+            ),
           ),
           actions: <Widget>[
             TextButton(

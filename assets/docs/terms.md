@@ -1,4 +1,3 @@
-# Términos y Condiciones de Privacidad de LectorVerso
 
 ## 1. Introducción
 
