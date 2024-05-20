@@ -3,6 +3,7 @@ import 'package:project_v/core/utils/validation_functions.dart';
 import 'package:project_v/widgets/custom_floating_text_field.dart';
 import 'package:project_v/widgets/custom_checkbox_button.dart';
 import 'package:project_v/widgets/custom_elevated_button.dart';
+import 'package:project_v/widgets/show_terms_dialog.dart';
 import 'models/register_model.dart';
 import 'package:flutter/material.dart';
 import 'package:project_v/core/app_export.dart';
@@ -34,6 +35,7 @@ class RegisterScreen extends StatefulWidget {
 class _RegisterScreenState extends State<RegisterScreen> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   bool _isRegistering = false;
+  bool _acceptedTerms = false;
 
   @override
   Widget build(BuildContext context) {
@@ -261,22 +263,20 @@ class _RegisterScreenState extends State<RegisterScreen> {
   /// Builds the container with the terms and conditions checkbox.
   Widget _buildContainer(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.only(
-        left: 15.h,
-        right: 23.h,
-      ),
+      padding: EdgeInsets.zero,
       child: BlocSelector<RegisterBloc, RegisterState, bool?>(
         selector: (state) => state.container,
         builder: (context, container) {
-          return CustomCheckboxButton(
-            text: "msg_i_accept_the_terms".tr,
-            value: container,
-            padding: EdgeInsets.symmetric(vertical: 1.v),
-            onChange: (value) {
-              context
-                  .read<RegisterBloc>()
-                  .add(ChangeCheckBoxEvent(value: value));
-            },
+          return Padding(
+            padding: EdgeInsets.symmetric(horizontal: 15.h),
+            child: TermsAndConditions(
+              value: _acceptedTerms,
+              onChanged: (bool? value) {
+                setState(() {
+                  _acceptedTerms = value ?? false;
+                });
+              },
+            ),
           );
         },
       ),
@@ -291,9 +291,11 @@ class _RegisterScreenState extends State<RegisterScreen> {
         text: "lbl_register".tr,
         margin: EdgeInsets.symmetric(horizontal: 46.h),
         alignment: Alignment.center,
-        onPressed: () => signUp(context));
+        onPressed: _acceptedTerms ? () => signUp(context) : null);
   }
 
+  /// Section Widget
+  /// Signs up the user.
   Future<void> signUp(BuildContext context) async {
     if (_isRegistering || !_formKey.currentState!.validate()) {
       ScaffoldMessenger.of(context).showSnackBar(
@@ -317,8 +319,6 @@ class _RegisterScreenState extends State<RegisterScreen> {
         );
       },
     );
-
-
 
     context
         .read<RegisterBloc>()
