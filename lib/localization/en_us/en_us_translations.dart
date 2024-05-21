@@ -15,6 +15,8 @@ final Map<String, String> enUs = {
   "msg_i_accept_the_terms": "I accept the terms and conditions.",
   "msg_introduce_your_full": "Introduce your full name",
   "msg_password_confirmation": "Password confirmation ",
+  "msg_you_must_accept_the_terms": "You must accept the Terms and Conditions to register.",
+  
 
   // home Screen
   "lbl_bleach": "Bleach", "msg_hinted_search_text": "Hinted search text",
@@ -49,6 +51,7 @@ final Map<String, String> enUs = {
   "err_msg_please_enter_valid_email": "Please enter valid email",
   "err_msg_please_enter_valid_password": "Please enter valid password",
   "err_msg_please_enter_valid_text": "Please enter valid text",
+  "err_please_enter_all_fields": "Please enter all fields validly",
 
   // Exception Error String
   "err_msg_email_or_password_is_empty": "Email or password is empty",

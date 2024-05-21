@@ -129,7 +129,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
           alignment: Alignment.bottomCenter,
           autovalidateMode: AutovalidateMode.onUserInteraction,
           validator: (value) {
-            if (!isText(value)) {
+            if (!isText(value) || value == null || value.isEmpty) {
               return "err_msg_please_enter_valid_text".tr;
             }
             return null;
@@ -290,7 +290,34 @@ class _RegisterScreenState extends State<RegisterScreen> {
         text: "lbl_register".tr,
         margin: EdgeInsets.symmetric(horizontal: 46.h),
         alignment: Alignment.center,
-        onPressed: _acceptedTerms ? () => signUp(context) : null); //TODO: Pop Up 
+        onPressed: () {
+          if (_acceptedTerms) {
+            signUp(context);
+          } else {
+            _showTermsAlert(context);
+          }
+        }); 
+  }
+
+   /// Function to show alert dialog when terms and conditions are not accepted.
+  void _showTermsAlert(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: Text('msg_terms_and_conditions'.tr),
+          content: Text('msg_you_must_accept_the_terms'.tr),
+          actions: [
+            TextButton(
+              child: Text("msg_close".tr),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
+          ],
+        );
+      },
+    );
   }
 
   /// Section Widget
@@ -298,7 +325,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
   Future<void> signUp(BuildContext context) async {
     if (_isRegistering || !_formKey.currentState!.validate()) {
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('err_msg_failed_to_create_user'.tr)),
+        SnackBar(content: Text('err_please_enter_all_fields'.tr)),
       );
       return;
     }
