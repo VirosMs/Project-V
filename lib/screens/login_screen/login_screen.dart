@@ -8,15 +8,15 @@ import 'package:project_v/core/app_export.dart';
 import 'bloc/login_bloc.dart';
 
 /// The login screen widget.
-class LoginScreen extends StatelessWidget {
+class LoginScreen extends StatefulWidget {
   LoginScreen({Key? key})
       : super(
           key: key,
         );
 
-  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+  @override
+  _LoginScreenState createState() => _LoginScreenState();
 
-  /// Creates a new instance of the [LoginScreen] widget.
   static Widget builder(BuildContext context) {
     return BlocProvider<LoginBloc>(
       create: (context) => LoginBloc(LoginState(
@@ -26,7 +26,11 @@ class LoginScreen extends StatelessWidget {
       child: LoginScreen(),
     );
   }
+}
 
+class _LoginScreenState extends State<LoginScreen> {
+  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+  bool _isLogging = false;
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<LoginBloc, LoginState>(
@@ -57,15 +61,7 @@ class LoginScreen extends StatelessWidget {
                         SizedBox(height: 20.v),
                         _buildTextField1(context),
                         SizedBox(height: 26.v),
-                        CustomElevatedButton(
-                          text: "lbl_login".tr,
-                          onPressed: () => Navigator.pushNamed(
-                              context, AppRoutes.homeContainerScreen),
-                          margin: EdgeInsets.only(
-                            left: 44.h,
-                            right: 41.h,
-                          ),
-                        ),
+                        _buildButtonLogin(context),
                         SizedBox(height: 13.v),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -116,11 +112,12 @@ class LoginScreen extends StatelessWidget {
                 textInputType: TextInputType.emailAddress,
                 validator: (value) {
                   if (value == null ||
-                     EmailValidator.validate(value) == false){
+                      EmailValidator.validate(value) == false) {
                     return "err_msg_please_enter_valid_email".tr;
                   }
                   return null;
-                }, autovalidateMode: AutovalidateMode.onUserInteraction,
+                },
+                autovalidateMode: AutovalidateMode.onUserInteraction,
               );
             },
           ),
@@ -172,12 +169,70 @@ class LoginScreen extends StatelessWidget {
                     return "err_msg_please_enter_valid_password".tr;
                   }
                   return null;
-                }, autovalidateMode: AutovalidateMode.onUserInteraction,
+                },
+                autovalidateMode: AutovalidateMode.onUserInteraction,
               );
             },
           ),
         ],
       ),
     );
+  }
+
+  /// Section Widget
+  /// Builds the register button.
+  Widget _buildButtonLogin(BuildContext context) {
+    return CustomElevatedButton(
+      text: "lbl_login".tr,
+      margin: EdgeInsets.symmetric(horizontal: 15.h),
+      onPressed: () {
+        if (!_formKey.currentState!.validate()) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(content: Text('err_msg_please_enter_all_fields'.tr)),
+          );
+          return;
+        }
+        if (_isLogging) {
+          return;
+        }
+        _login(context);
+      },
+    );
+  }
+
+  Future<void> _login(BuildContext context) async {
+    setState(() {
+      _isLogging = true;
+    });
+
+    showDialog(
+      context: context,
+      barrierDismissible: false,
+      builder: (BuildContext context) {
+        return Dialog(
+          backgroundColor: Colors.transparent,
+          child: Center(
+            child: CircularProgressIndicator(),
+          ),
+        );
+      },
+    );
+
+    context
+        .read<LoginBloc>()
+        .login(context.read<LoginBloc>().state.emailController!.text,
+            context.read<LoginBloc>().state.passwordController!.text)
+        .onError((Object error, StackTrace stackTrace) {
+      MyDialogExeception(message: error.toString())
+          .showDialogWithDelay(context);
+      return Future.error(error);
+    }).then((value) => {
+              Navigator.pop(context),
+              Navigator.pushNamed(context, AppRoutes.homeContainerScreen),
+            });
+
+    setState(() {
+      _isLogging = false;
+    });
   }
 }
