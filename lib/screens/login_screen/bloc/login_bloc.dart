@@ -1,9 +1,15 @@
 import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
+import 'package:project_v/data/apiClient/api_client.dart';
+import 'package:project_v/entity/user.dart';
+import 'package:project_v/entity/userDTO.dart';
 import '/core/app_export.dart';
 import 'package:project_v/screens/login_screen/models/login_model.dart';
+import 'package:logger/logger.dart' as logger_package;
 part 'login_event.dart';
 part 'login_state.dart';
+
+logger_package.Logger logger = logger_package.Logger();
 
 /// A bloc that manages the state of a Login according to the event that is dispatched to it.
 class LoginBloc extends Bloc<LoginEvent, LoginState> {
@@ -39,5 +45,26 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
       passwordController: TextEditingController(),
       isShowPassword: true,
     ));
+  }
+
+  Future<UserDTO> login(String email, String password) async {
+    // Perform login operation here
+    logger.i('Login initiated');
+
+    if (email.isEmpty || password.isEmpty) {
+      throw Exception('err_msg_email_password_empty'.tr);
+    }
+    logger.i('Login user: $email');
+
+    ApiClient apiClient = ApiClient();
+
+    try {
+      var user = await apiClient.getUser(email, password);
+      logger.i('Login successful');
+      return user;
+    } catch (e) {
+      logger.e('Login failed: $e');
+      throw Exception('err_msg_user_not_found'.tr);
+    }
   }
 }
