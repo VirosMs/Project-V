@@ -4,28 +4,31 @@ import 'package:http/http.dart' as http;
 import 'package:project_v/core/app_export.dart';
 import 'package:project_v/entity/user.dart';
 import 'package:logger/logger.dart' as logger_package;
+import 'package:project_v/entity/userDTO.dart';
 
 logger_package.Logger logger = logger_package.Logger();
 
 class ApiClient {
   final String _url = 'http://10.0.2.2:8080/lv/api/u';
 
-  Future<User> getUser(String email, String password) async {
-    logger.i('Getting user: $email, $password');
+  Future<UserDTO> getUser(String email, String password) async {
+    logger.i('Getting user API');
+    await checkApiConnection().catchError((e) => throw e);
+
     if (email.isEmpty || password.isEmpty) {
       throw Exception('err_msg_email_or_password_is_empty'.tr);
     }
+    logger.i('Getting user: $email, $password'); // Reemplaza con tu URL base
 
-    var uri = Uri.parse('$_url/user/e');
+    var uri = Uri.parse('$_url/user/e?email=$email&password=$password');
 
-    var response = await http.get(uri, headers: {
-      'email': email,
-      'password': password,
-    });
+    var response = await http.get(uri);
+
+    logger.i('Response: ${response.body} ---- ${response.statusCode}');
 
     if (response.statusCode == 200) {
       logger.i('User found');
-      return User.fromJson(jsonDecode(response.body));
+      return UserDTO.fromJson(jsonDecode(response.body));
     } else if (response.statusCode == 404) {
       logger.e('User not found: ${response.body}');
       throw Exception('err_msg_user_not_found'.tr);
@@ -44,13 +47,14 @@ class ApiClient {
   }
 
   Future<bool> createUser(User user) async {
-    logger.i('Creating user: ${user.toJson()}');
+    logger.i('Creating user API');
 
     await checkApiConnection().catchError((e) => throw e);
 
     if (user.email.isEmpty || user.name.isEmpty || user.password.isEmpty) {
       throw Exception('err_msg_email_name_or_password_is_empty'.tr);
     }
+    logger.i('Creating user: ${user.toJson()}');
 
     var uri = Uri.parse('$_url/user/');
 
