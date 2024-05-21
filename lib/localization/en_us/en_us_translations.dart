@@ -15,6 +15,8 @@ final Map<String, String> enUs = {
   "msg_i_accept_the_terms": "I accept the terms and conditions.",
   "msg_introduce_your_full": "Introduce your full name",
   "msg_password_confirmation": "Password confirmation ",
+  "msg_you_must_accept_the_terms": "You must accept the Terms and Conditions to register.",
+  
 
   // home Screen
   "lbl_bleach": "Bleach", "msg_hinted_search_text": "Hinted search text",
@@ -36,6 +38,10 @@ final Map<String, String> enUs = {
   "lbl_password": "Password",
   "msg_introduce_your_email": "Introduce your Email",
   "msg_introduce_your_password": "Introduce your password",
+  "msg_terms_and_conditions": "Terms and conditions of privacy",
+  "msg_terms_and_conditions_1": "I accept the ",
+  "msg_terms_and_conditions_2": "terms and conditions of privacy",
+  "msg_close": "Close",
 
 // Network Error String
   "msg_network_err": "Network Error",
@@ -45,4 +51,23 @@ final Map<String, String> enUs = {
   "err_msg_please_enter_valid_email": "Please enter valid email",
   "err_msg_please_enter_valid_password": "Please enter valid password",
   "err_msg_please_enter_valid_text": "Please enter valid text",
+  "err_msg_the_password_confirmation_does_not_match": "The password confirmation does not match",
+  "err_msg_please_enter_all_fields": "Please enter all fields validly",
+  
+
+  // Exception Error String
+  "err_msg_email_or_password_is_empty": "Email or password is empty",
+  "err_msg_email_name_or_password_is_empty": "Email, name or password is empty",
+  "err_msg_user_not_found": "User not found",
+  "err_msg_unauthorized": "Unauthorized",
+  "err_msg_bad_request": "Bad Request",
+  "err_msg_internal_server_error": "Internal Server Error",
+  "err_msg_failed_to_load_user": "Failed to load user",
+  "err_msg_conflict": "Conflict",
+  "err_msg_failed_to_create_user": "Failed to create user",
+  "err_msg_failed_api_connection": "Failed API connection",
+  "err_msg_user_already_exists": "User already exists",
+  "err_msg_timeout": "Timeout",
+
+
 };

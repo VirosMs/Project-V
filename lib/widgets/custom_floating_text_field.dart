@@ -27,7 +27,7 @@ class CustomFloatingTextField extends StatelessWidget {
     this.borderDecoration,
     this.fillColor,
     this.filled = false,
-    this.validator,
+    this.validator, required AutovalidateMode autovalidateMode,
   }) : super(
           key: key,
         );

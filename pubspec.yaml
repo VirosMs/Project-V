@@ -2,8 +2,11 @@ name: project_v
 description: A new Flutter project.
 version: 1.0.0+1
 environment: 
-  sdk: '>=2.12.0 <3.0.0'
+  sdk: '>=3.2.3 <4.0.0'
 dependencies: 
+  flutter_markdown: ^0.7.1
+  logger: ^2.0.2+1
+  email_validator: ^2.1.17
   flutter: 
     sdk: flutter
   flutter_localizations: 
@@ -14,9 +17,10 @@ dependencies:
   cached_network_image: ^3.3.0
   flutter_svg: ^2.0.9
   equatable: ^2.0.5
-  email_validator: ^2.1.17
-  logger: ^1.0.0
+  
+  
   carousel_slider: ^4.2.1
+  
 dev_dependencies: 
   flutter_test: 
     sdk: flutter
@@ -25,6 +29,9 @@ flutter:
   assets: 
     - assets/
     - assets/images/
+    - assets/docs/terms_es.md
+    - assets/docs/terms_en.md
+
   fonts: 
     - family: Roboto
       fonts: 

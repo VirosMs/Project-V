@@ -1,20 +1,19 @@
+import 'package:email_validator/email_validator.dart';
 import 'package:project_v/core/utils/validation_functions.dart';
 import 'package:project_v/widgets/custom_floating_text_field.dart';
-import 'package:project_v/widgets/custom_checkbox_button.dart';
 import 'package:project_v/widgets/custom_elevated_button.dart';
+import 'package:project_v/widgets/show_terms_dialog.dart';
 import 'models/register_model.dart';
 import 'package:flutter/material.dart';
 import 'package:project_v/core/app_export.dart';
 import 'bloc/register_bloc.dart';
 
 /// The screen for user registration.
-class RegisterScreen extends StatelessWidget {
+class RegisterScreen extends StatefulWidget {
   RegisterScreen({Key? key})
       : super(
           key: key,
         );
-
-  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
   /// Creates a new instance of [RegisterScreen] wrapped in a [BlocProvider].
   static Widget builder(BuildContext context) {
@@ -26,6 +25,16 @@ class RegisterScreen extends StatelessWidget {
       child: RegisterScreen(),
     );
   }
+
+  @override
+  _RegisterScreenState createState() => _RegisterScreenState();
+}
+
+/// The screen for user registration.
+class _RegisterScreenState extends State<RegisterScreen> {
+  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+  bool _isRegistering = false;
+  bool _acceptedTerms = false;
 
   @override
   Widget build(BuildContext context) {
@@ -53,7 +62,7 @@ class RegisterScreen extends StatelessWidget {
                           CustomImageView(
                             imagePath: ImageConstant.imgBlackAndWhite333x360,
                             height: 333.v,
-                            width: 360.h,
+                            width: 340.h,
                             margin: EdgeInsets.only(left: 35.v),
                           ),
                         ],
@@ -118,6 +127,7 @@ class RegisterScreen extends StatelessWidget {
           labelStyle: theme.textTheme.bodyLarge!,
           hintText: "lbl_name".tr,
           alignment: Alignment.bottomCenter,
+          autovalidateMode: AutovalidateMode.onUserInteraction,
           validator: (value) {
             if (!isText(value)) {
               return "err_msg_please_enter_valid_text".tr;
@@ -143,8 +153,9 @@ class RegisterScreen extends StatelessWidget {
           hintText: "lbl_email".tr,
           textInputType: TextInputType.emailAddress,
           alignment: Alignment.bottomCenter,
+          autovalidateMode: AutovalidateMode.onUserInteraction,
           validator: (value) {
-            if (value == null || (!isValidEmail(value, isRequired: true))) {
+            if (value == null || EmailValidator.validate(value) == false) {
               return "err_msg_please_enter_valid_email".tr;
             }
             return null;
@@ -193,6 +204,7 @@ class RegisterScreen extends StatelessWidget {
               }
               return null;
             },
+            autovalidateMode: AutovalidateMode.onUserInteraction,
           );
         },
       ),
@@ -233,12 +245,14 @@ class RegisterScreen extends StatelessWidget {
               maxHeight: 64.v,
             ),
             validator: (value) {
-              if (value == null ||
-                  (!isValidPassword(value, isRequired: true))) {
+              if (value == null || !isValidPassword(value, isRequired: true)) {
                 return "err_msg_please_enter_valid_password".tr;
+              } else if (state.passwordController!.text != value) {
+                return "err_msg_the_password_confirmation_does_not_match".tr;
               }
               return null;
             },
+            autovalidateMode: AutovalidateMode.onUserInteraction,
           );
         },
       ),
@@ -249,22 +263,20 @@ class RegisterScreen extends StatelessWidget {
   /// Builds the container with the terms and conditions checkbox.
   Widget _buildContainer(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.only(
-        left: 15.h,
-        right: 23.h,
-      ),
+      padding: EdgeInsets.zero,
       child: BlocSelector<RegisterBloc, RegisterState, bool?>(
         selector: (state) => state.container,
         builder: (context, container) {
-          return CustomCheckboxButton(
-            text: "msg_i_accept_the_terms".tr,
-            value: container,
-            padding: EdgeInsets.symmetric(vertical: 1.v),
-            onChange: (value) {
-              context
-                  .read<RegisterBloc>()
-                  .add(ChangeCheckBoxEvent(value: value));
-            },
+          return Padding(
+            padding: EdgeInsets.symmetric(horizontal: 10.h),
+            child: TermsAndConditions(
+              value: _acceptedTerms,
+              onChanged: (bool? value) {
+                setState(() {
+                  _acceptedTerms = value ?? false;
+                });
+              },
+            ),
           );
         },
       ),
@@ -275,12 +287,81 @@ class RegisterScreen extends StatelessWidget {
   /// Builds the register button.
   Widget _buildButtonRegister(BuildContext context) {
     return CustomElevatedButton(
-      height: 42.v,
-      text: "lbl_register".tr,
-      margin: EdgeInsets.symmetric(horizontal: 46.h),
-      alignment: Alignment.center,
-      onPressed: () =>
-          Navigator.pushNamed(context, AppRoutes.homeContainerScreen),
+        height: 42.v,
+        text: "lbl_register".tr,
+        margin: EdgeInsets.symmetric(horizontal: 46.h),
+        alignment: Alignment.center,
+        onPressed: () {
+          if (_isRegistering || !_formKey.currentState!.validate()) {
+            ScaffoldMessenger.of(context).showSnackBar(
+              SnackBar(content: Text('err_msg_please_enter_all_fields'.tr)),
+            );
+            return;
+          }
+          if (_acceptedTerms) {
+            signUp(context);
+          } else {
+            _showTermsAlert(context);
+          }
+        });
+  }
+
+  /// Function to show alert dialog when terms and conditions are not accepted.
+  void _showTermsAlert(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: Text('msg_terms_and_conditions'.tr),
+          content: Text('msg_you_must_accept_the_terms'.tr),
+          actions: [
+            TextButton(
+              child: Text("msg_close".tr),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
+          ],
+        );
+      },
     );
+  }
+
+  /// Section Widget
+  /// Signs up the user.
+  Future<void> signUp(BuildContext context) async {
+    setState(() {
+      _isRegistering = true;
+    });
+
+    showDialog(
+      context: context,
+      barrierDismissible: false,
+      builder: (BuildContext context) {
+        return Dialog(
+          backgroundColor: Colors.transparent,
+          child: Center(
+            child: CircularProgressIndicator(),
+          ),
+        );
+      },
+    );
+
+    context
+        .read<RegisterBloc>()
+        .registerUser(
+            context.read<RegisterBloc>().state.emailController!.text,
+            context.read<RegisterBloc>().state.passwordController!.text,
+            context.read<RegisterBloc>().state.nameController!.text)
+        .catchError((e) {
+      MyDialogExeception(message: e.toString()).showDialogWithDelay(context);
+    }).then((value) => {
+              Navigator.pop(context),
+              Navigator.pushNamed(context, AppRoutes.homePage)
+            });
+
+    setState(() {
+      _isRegistering = false;
+    });
   }
 }
