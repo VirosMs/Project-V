@@ -357,7 +357,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
       MyDialogExeception(message: e.toString()).showDialogWithDelay(context);
     }).then((value) => {
               Navigator.pop(context),
-              Navigator.pushNamed(context, AppRoutes.homePage)
+              Navigator.pushNamed(context, AppRoutes.loginScreen)
             });
 
     setState(() {
