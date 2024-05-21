@@ -68,6 +68,7 @@ final Map<String, String> enUs = {
   "err_msg_failed_api_connection": "Failed API connection",
   "err_msg_user_already_exists": "User already exists",
   "err_msg_timeout": "Timeout",
+  "err_msg_email_password_empty": "Email or password is empty",
 
 
 };
