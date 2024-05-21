@@ -40,23 +40,19 @@ bool isValidPassword(
   return isInputStringValid;
 }
 
-/// Checks if a string consists only of alphabets (no whitespace).
+/// Checks if a string consists only of alphabets and numbers (no whitespace).
 ///
-/// Returns `true` if the [inputString] consists only of alphabets (no whitespace),
-/// or if [isRequired] is `false` and [inputString] is `null` or empty.
+/// Returns `true` if the [inputString] consists only of alphabets and numbers (no whitespace),
+/// and is not `null` or empty.
 /// Otherwise, returns `false`.
 bool isText(
   String? inputString, {
-  bool isRequired = false,
+  bool isRequired = true,
 }) {
   bool isInputStringValid = false;
 
-  if (!isRequired && (inputString == null ? true : inputString.isEmpty)) {
-    isInputStringValid = true;
-  }
-
   if (inputString != null && inputString.isNotEmpty) {
-    const pattern = r'^[a-zA-Z]+$';
+    const pattern = r'^[a-zA-Z0-9]+$';
 
     final regExp = RegExp(pattern);
 

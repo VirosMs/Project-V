@@ -62,7 +62,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                           CustomImageView(
                             imagePath: ImageConstant.imgBlackAndWhite333x360,
                             height: 333.v,
-                            width: 360.h,
+                            width: 340.h,
                             margin: EdgeInsets.only(left: 35.v),
                           ),
                         ],
@@ -129,7 +129,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
           alignment: Alignment.bottomCenter,
           autovalidateMode: AutovalidateMode.onUserInteraction,
           validator: (value) {
-            if (!isText(value) || value == null || value.isEmpty) {
+            if (!isText(value)) {
               return "err_msg_please_enter_valid_text".tr;
             }
             return null;
@@ -245,9 +245,10 @@ class _RegisterScreenState extends State<RegisterScreen> {
               maxHeight: 64.v,
             ),
             validator: (value) {
-              if (value == null ||
-                  (!isValidPassword(value, isRequired: true))) {
+              if (value == null || !isValidPassword(value, isRequired: true)) {
                 return "err_msg_please_enter_valid_password".tr;
+              } else if (state.passwordController!.text != value) {
+                return "err_msg_the_password_confirmation_does_not_match".tr;
               }
               return null;
             },
@@ -291,15 +292,21 @@ class _RegisterScreenState extends State<RegisterScreen> {
         margin: EdgeInsets.symmetric(horizontal: 46.h),
         alignment: Alignment.center,
         onPressed: () {
+          if (_isRegistering || !_formKey.currentState!.validate()) {
+            ScaffoldMessenger.of(context).showSnackBar(
+              SnackBar(content: Text('err_msg_please_enter_all_fields'.tr)),
+            );
+            return;
+          }
           if (_acceptedTerms) {
             signUp(context);
           } else {
             _showTermsAlert(context);
           }
-        }); 
+        });
   }
 
-   /// Function to show alert dialog when terms and conditions are not accepted.
+  /// Function to show alert dialog when terms and conditions are not accepted.
   void _showTermsAlert(BuildContext context) {
     showDialog(
       context: context,
@@ -323,12 +330,6 @@ class _RegisterScreenState extends State<RegisterScreen> {
   /// Section Widget
   /// Signs up the user.
   Future<void> signUp(BuildContext context) async {
-    if (_isRegistering || !_formKey.currentState!.validate()) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('err_please_enter_all_fields'.tr)),
-      );
-      return;
-    }
     setState(() {
       _isRegistering = true;
     });

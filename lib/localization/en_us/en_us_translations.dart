@@ -51,7 +51,9 @@ final Map<String, String> enUs = {
   "err_msg_please_enter_valid_email": "Please enter valid email",
   "err_msg_please_enter_valid_password": "Please enter valid password",
   "err_msg_please_enter_valid_text": "Please enter valid text",
-  "err_please_enter_all_fields": "Please enter all fields validly",
+  "err_msg_the_password_confirmation_does_not_match": "The password confirmation does not match",
+  "err_msg_please_enter_all_fields": "Please enter all fields validly",
+  
 
   // Exception Error String
   "err_msg_email_or_password_is_empty": "Email or password is empty",
