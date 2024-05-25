@@ -220,8 +220,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
     context
         .read<LoginBloc>()
-        .login(context.read<LoginBloc>().state.emailController!.text,
-            context.read<LoginBloc>().state.passwordController!.text)
+        .login()
         .onError((Object error, StackTrace stackTrace) {
       MyDialogExeception(message: error.toString())
           .showDialogWithDelay(context);

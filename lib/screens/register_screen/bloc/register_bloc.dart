@@ -65,8 +65,8 @@ class RegisterBloc extends Bloc<RegisterEvent, RegisterState> {
     ));
   }
 
-  Future registerUser(String email, String password, String name) async {
-    logger.i('Register user: $name');
+  Future registerUser() async {
+    logger.i('Register user: $state.nameController!.text');
     User user = User(
       name: state.nameController!.text,
       email: state.emailController!.text,

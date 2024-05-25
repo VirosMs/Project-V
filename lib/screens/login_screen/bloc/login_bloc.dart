@@ -1,7 +1,6 @@
 import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
 import 'package:project_v/data/apiClient/api_client.dart';
-import 'package:project_v/entity/user.dart';
 import 'package:project_v/entity/userDTO.dart';
 import '/core/app_export.dart';
 import 'package:project_v/screens/login_screen/models/login_model.dart';
@@ -47,19 +46,21 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
     ));
   }
 
-  Future<UserDTO> login(String email, String password) async {
+  Future<UserDTO> login() async {
     // Perform login operation here
     logger.i('Login initiated');
 
-    if (email.isEmpty || password.isEmpty) {
+    if (state.emailController!.text.isEmpty ||
+        state.passwordController!.text.isEmpty) {
       throw Exception('err_msg_email_password_empty'.tr);
     }
-    logger.i('Login user: $email');
+    logger.i('Login user: $state.emailController!.text');
 
     ApiClient apiClient = ApiClient();
 
     try {
-      var user = await apiClient.getUser(email, password);
+      var user = await apiClient.getUser(
+          state.emailController!.text, state.passwordController!.text);
       logger.i('Login successful');
       return user;
     } catch (e) {

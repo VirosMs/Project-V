@@ -349,10 +349,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
 
     context
         .read<RegisterBloc>()
-        .registerUser(
-            context.read<RegisterBloc>().state.emailController!.text,
-            context.read<RegisterBloc>().state.passwordController!.text,
-            context.read<RegisterBloc>().state.nameController!.text)
+        .registerUser()
         .catchError((e) {
       MyDialogExeception(message: e.toString()).showDialogWithDelay(context);
     }).then((value) => {
