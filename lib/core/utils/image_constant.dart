@@ -26,6 +26,10 @@ class ImageConstant {
   static String imgBlackAndWhite333x360 =
       '$imagePath/img_black_and_white_333x360.png';
 
+  static String darkLogo = '$imagePath/dark_logo.png';
+
+  static String lightLogo = '$imagePath/light_logo.png';
+
   static String imgContrast = '$imagePath/img_contrast.svg';
 
   static String imgMegaphone = '$imagePath/img_megaphone.svg';

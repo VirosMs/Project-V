@@ -60,10 +60,10 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         alignment: Alignment.center,
                         children: [
                           CustomImageView(
-                            imagePath: ImageConstant.imgBlackAndWhite333x360,
-                            height: 333.v,
+                            imagePath: ImageConstant.darkLogo,
+                            height: 340.v,
                             width: 340.h,
-                            margin: EdgeInsets.only(left: 35.v),
+                            margin: EdgeInsets.symmetric(),
                           ),
                         ],
                       ),
@@ -347,15 +347,12 @@ class _RegisterScreenState extends State<RegisterScreen> {
       },
     );
 
-    context
-        .read<RegisterBloc>()
-        .registerUser()
-        .catchError((e) {
+    context.read<RegisterBloc>().registerUser().catchError((e) {
       MyDialogExeception(message: e.toString()).showDialogWithDelay(context);
     }).then((value) => {
-              Navigator.pop(context),
-              Navigator.pushNamed(context, AppRoutes.loginScreen)
-            });
+          Navigator.pop(context),
+          Navigator.pushNamed(context, AppRoutes.loginScreen)
+        });
 
     setState(() {
       _isRegistering = false;

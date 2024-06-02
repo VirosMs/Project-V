@@ -28,7 +28,7 @@ class SplashScreen extends StatelessWidget {
                       children: [
                         SizedBox(height: 5.v),
                         CustomImageView(
-                            imagePath: ImageConstant.imgBlackAndWhite,
+                            imagePath: ImageConstant.darkLogo,
                             height: 380.v,
                             width: 360.h)
                       ]))));

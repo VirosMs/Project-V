@@ -52,10 +52,11 @@ class _LoginScreenState extends State<LoginScreen> {
                     child: Column(
                       children: [
                         CustomImageView(
-                            imagePath: ImageConstant.imgBlackAndWhite333x360,
-                            height: 333.v,
+                            imagePath: ImageConstant.darkLogo,
+                            height: 360.v,
                             width: 360.h,
-                            margin: EdgeInsets.only(left: 35.v)),
+                            margin: EdgeInsets.symmetric()
+                            ),
                         SizedBox(height: 5.v),
                         _buildTextField(context),
                         SizedBox(height: 20.v),

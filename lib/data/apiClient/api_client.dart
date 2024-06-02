@@ -18,7 +18,7 @@ class ApiClient {
     if (email.isEmpty || password.isEmpty) {
       throw Exception('err_msg_email_or_password_is_empty'.tr);
     }
-    logger.i('Getting user: $email, $password'); // Reemplaza con tu URL base
+    logger.i('Getting user: $email, $password'); 
 
     var uri = Uri.parse('$_url/user/e?email=$email&password=$password');
 
