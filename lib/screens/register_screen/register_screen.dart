@@ -61,7 +61,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         children: [
                           CustomImageView(
                             imagePath: ImageConstant.darkLogo,
-                            height: 340.v,
+                            height: 245.v,
                             width: 340.h,
                             margin: EdgeInsets.symmetric(),
                           ),
